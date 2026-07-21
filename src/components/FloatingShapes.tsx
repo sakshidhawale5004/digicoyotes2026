@@ -1,8 +1,9 @@
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useRef, Suspense, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
-import { MeshDistortMaterial, Float, Stars } from "@react-three/drei";
+import { Float, Stars, useTexture } from "@react-three/drei";
+import logoUrl from "@/assets/logo.png";
 
 /**
  * Cinematic hero scene — realistic lighting rig.
@@ -88,53 +89,79 @@ const Satellite = ({
 const CoreObject = ({ isDark }: { isDark: boolean }) => {
   const ref = useRef<THREE.Group>(null);
   const geo = useMemo(() => new THREE.IcosahedronGeometry(1.55, 1), []);
-  const geoSphere = useMemo(() => new THREE.SphereGeometry(1.4, 64, 64), []);
   const edges = useMemo(() => new THREE.EdgesGeometry(geo), [geo]);
+  
+  // Load the logo texture for the day mode coin
+  const texture = useLoader(THREE.TextureLoader, logoUrl);
 
   useFrame((state, dt) => {
     if (!ref.current) return;
-    ref.current.rotation.y += dt * 0.1;
-    ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.25) * 0.12;
-    ref.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.12;
+    
+    if (isDark) {
+      ref.current.rotation.y += dt * 0.1;
+      ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.25) * 0.12;
+      ref.current.position.y = Math.sin(state.clock.elapsedTime * 0.5) * 0.12;
+    } else {
+      // Coin spin
+      ref.current.rotation.y += dt * 0.4;
+      ref.current.position.y = Math.sin(state.clock.elapsedTime * 1.5) * 0.15;
+      ref.current.rotation.x = 0.1 * Math.sin(state.clock.elapsedTime);
+      ref.current.rotation.z = 0.05 * Math.cos(state.clock.elapsedTime);
+    }
   });
+
+  if (!isDark) {
+    return (
+      <group ref={ref} position={[0, 0.2, 0]}>
+        {/* Premium Silver/Glass Coin Base */}
+        <mesh rotation={[Math.PI / 2, 0, 0]}>
+          <cylinderGeometry args={[2.2, 2.2, 0.15, 64]} />
+          <meshPhysicalMaterial
+            color="#ffffff"
+            metalness={0.9}
+            roughness={0.05}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
+          />
+        </mesh>
+        
+        {/* Front Logo */}
+        <mesh position={[0, 0, 0.08]}>
+          <planeGeometry args={[3, 3]} />
+          <meshBasicMaterial map={texture} transparent opacity={0.95} />
+        </mesh>
+
+        {/* Back Logo */}
+        <mesh position={[0, 0, -0.08]} rotation={[0, Math.PI, 0]}>
+          <planeGeometry args={[3, 3]} />
+          <meshBasicMaterial map={texture} transparent opacity={0.95} />
+        </mesh>
+      </group>
+    );
+  }
 
   return (
     <group ref={ref} position={[0, 0.1, 0]}>
       {/* Core object */}
-      <mesh geometry={isDark ? geo : geoSphere}>
-        {isDark ? (
-          <meshStandardMaterial
-            color="#151515"
-            metalness={0.95}
-            roughness={0.28}
-            emissive="#ff5a1f"
-            emissiveIntensity={0.06}
-          />
-        ) : (
-          <MeshDistortMaterial
-            color="#ff7a2a"
-            metalness={0.4}
-            roughness={0.1}
-            distort={0.4}
-            speed={2.5}
-            transmission={0.2}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-          />
-        )}
+      <mesh geometry={geo}>
+        <meshStandardMaterial
+          color="#151515"
+          metalness={0.95}
+          roughness={0.28}
+          emissive="#ff5a1f"
+          emissiveIntensity={0.06}
+        />
       </mesh>
       {/* Warm edge highlight (Dark mode only) */}
-      {isDark && (
-        <lineSegments geometry={edges}>
-          <lineBasicMaterial color="#ff7a2a" transparent opacity={0.55} />
-        </lineSegments>
-      )}
+      <lineSegments geometry={edges}>
+        <lineBasicMaterial color="#ff7a2a" transparent opacity={0.55} />
+      </lineSegments>
       {/* Outer soft glow shell */}
-      <mesh geometry={isDark ? geo : geoSphere} scale={1.22}>
+      <mesh geometry={geo} scale={1.22}>
         <meshBasicMaterial
-          color={isDark ? "#ff6b1a" : "#ff8a3d"}
+          color="#ff8a3d"
           transparent
-          opacity={isDark ? 0.045 : 0.02}
+          opacity={0.045}
           blending={THREE.AdditiveBlending}
           side={THREE.BackSide}
         />
@@ -259,7 +286,6 @@ const FloatingShapes = () => {
           <pointLight position={[3, 0.5, 2]} color="#ff6b1a" intensity={isDark ? 1.4 : 2} distance={9} />
 
           <ContactShadow />
-          {isDark ? null : <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />}
           <CoreObject isDark={isDark} />
           <Satellite radius={2.7} speed={0.35} offset={0} yTilt={0.4} size={0.28} isDark={isDark} />
           <Satellite radius={3.1} speed={-0.28} offset={2.1} yTilt={0.6} size={0.22} isDark={isDark} />

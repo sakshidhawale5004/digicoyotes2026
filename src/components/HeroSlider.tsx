@@ -2,6 +2,7 @@ import { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 import FloatingShapes from "./FloatingShapes";
 
 interface HeroSliderProps {
@@ -29,6 +30,9 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
   const contentY = useTransform(scrollY, [0, 600], [0, -60]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
   const gridY = useTransform(scrollY, [0, 600], [0, -80]);
+  
+  const { theme } = useTheme();
+  const isDark = theme !== "light";
 
   useEffect(() => {
     const id = setInterval(() => setCurrentWord((p) => (p + 1) % rotatingWords.length), 3000);
@@ -49,7 +53,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/95 to-background" />
 
       {/* 3D holographic scene */}
-      <FloatingShapes />
+      <FloatingShapes className={`absolute inset-0 ${!isDark ? 'lg:left-1/2 lg:w-1/2' : ''}`} />
 
       {/* 3D perspective grid floor */}
       <motion.div
@@ -65,10 +69,10 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
 
       {/* Content */}
       <motion.div
-        className="container mx-auto px-6 relative z-10 text-center"
+        className={`container mx-auto px-6 relative z-10 ${isDark ? 'text-center' : 'text-center lg:text-left lg:flex lg:items-center'}`}
         style={{ y: contentY, opacity }}
       >
-        <div className="max-w-4xl mx-auto">
+        <div className={`w-full ${isDark ? 'max-w-4xl mx-auto' : 'mx-auto lg:mx-0 lg:max-w-xl xl:max-w-2xl'}`}>
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-primary/40 bg-primary/10 backdrop-blur"
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +110,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
           </motion.h1>
 
           <motion.p
-            className="mt-8 text-foreground/80 text-lg max-w-2xl mx-auto leading-relaxed text-balance"
+            className={`mt-8 text-foreground/80 text-lg max-w-2xl leading-relaxed text-balance ${isDark ? 'mx-auto' : 'mx-auto lg:mx-0'}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -115,7 +119,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
           </motion.p>
 
           <motion.div
-            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+            className={`mt-10 flex flex-wrap items-center gap-4 ${isDark ? 'justify-center' : 'justify-center lg:justify-start'}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}

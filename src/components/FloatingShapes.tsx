@@ -229,7 +229,7 @@ const Constellation = ({ isDark }: { isDark: boolean }) => {
   );
 };
 
-const FloatingShapes = () => {
+const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string }) => {
   const [enabled, setEnabled] = useState(false);
   const [visible, setVisible] = useState(true);
   const { theme } = useTheme();
@@ -254,7 +254,7 @@ const FloatingShapes = () => {
   if (!enabled) return null;
 
   return (
-    <div className="absolute inset-0 pointer-events-none">
+    <div className={`${className} pointer-events-none z-0`}>
       <Canvas
         camera={{ position: [0, 0.4, 6], fov: 45 }}
         dpr={[1, 1.5]}

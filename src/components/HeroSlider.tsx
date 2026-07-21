@@ -53,7 +53,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
       <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/95 to-background" />
 
       {/* 3D holographic scene */}
-      <FloatingShapes className={`absolute inset-0 ${!isDark ? 'lg:left-1/2 lg:w-1/2' : ''}`} />
+      <FloatingShapes className={`absolute inset-0 ${!isDark ? 'lg:left-[60%] lg:w-[45%]' : ''}`} />
 
       {/* 3D perspective grid floor */}
       <motion.div

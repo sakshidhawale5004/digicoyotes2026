@@ -236,7 +236,7 @@ const Index = () => {
               <ScrollReveal key={i} delay={i * 0.08}>
                 <TiltCard className="group h-full" intensity={12}>
                   <div className="border-holo rounded-2xl p-6 text-center h-full bg-surface-dark/40 backdrop-blur-sm neon-glow animate-holo-float" style={{ animationDelay: `${i * 0.4}s` }}>
-                    <p className="font-display text-5xl md:text-6xl font-extrabold text-extrude-dark mb-3 leading-none">{s.value}</p>
+                    <p className="font-display text-4xl md:text-5xl font-extrabold text-extrude-dark mb-3 leading-none">{s.value}</p>
                     <p className="text-surface-dark-foreground/85 text-sm">{s.label}</p>
                   </div>
                 </TiltCard>
@@ -361,7 +361,7 @@ const Index = () => {
               <ScrollReveal key={i} delay={i * 0.07}>
                 <TiltCard className="group h-full" intensity={16}>
                   <div className="border-holo p-6 rounded-2xl text-center h-full bg-surface-dark/50 backdrop-blur-sm neon-glow scanlines overflow-hidden">
-                    <p className="font-display text-4xl md:text-5xl font-extrabold text-extrude-dark mb-2 leading-none">{a.metric}</p>
+                    <p className="font-display text-3xl md:text-4xl font-extrabold text-extrude-dark mb-2 leading-none">{a.metric}</p>
                     <p className="text-surface-dark-foreground font-semibold text-sm mb-1">{a.label}</p>
                     <p className="text-surface-dark-foreground/50 text-xs">{a.detail}</p>
                   </div>

@@ -2,6 +2,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef, Suspense, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
+import { MeshDistortMaterial, Float, Stars } from "@react-three/drei";
 
 /**
  * Cinematic hero scene — realistic lighting rig.
@@ -87,6 +88,7 @@ const Satellite = ({
 const CoreObject = ({ isDark }: { isDark: boolean }) => {
   const ref = useRef<THREE.Group>(null);
   const geo = useMemo(() => new THREE.IcosahedronGeometry(1.55, 1), []);
+  const geoSphere = useMemo(() => new THREE.SphereGeometry(1.4, 64, 64), []);
   const edges = useMemo(() => new THREE.EdgesGeometry(geo), [geo]);
 
   useFrame((state, dt) => {
@@ -99,7 +101,7 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
   return (
     <group ref={ref} position={[0, 0.1, 0]}>
       {/* Core object */}
-      <mesh geometry={geo}>
+      <mesh geometry={isDark ? geo : geoSphere}>
         {isDark ? (
           <meshStandardMaterial
             color="#151515"
@@ -109,29 +111,30 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
             emissiveIntensity={0.06}
           />
         ) : (
-          <meshPhysicalMaterial
-            color="#ffffff"
-            metalness={0.1}
-            roughness={0.05}
-            transmission={0.95}
-            thickness={2}
+          <MeshDistortMaterial
+            color="#ff7a2a"
+            metalness={0.4}
+            roughness={0.1}
+            distort={0.4}
+            speed={2.5}
+            transmission={0.2}
             clearcoat={1}
             clearcoatRoughness={0.1}
-            emissive="#ff5a1f"
-            emissiveIntensity={0.02}
           />
         )}
       </mesh>
-      {/* Warm edge highlight */}
-      <lineSegments geometry={edges}>
-        <lineBasicMaterial color={isDark ? "#ff7a2a" : "#ff5a1f"} transparent opacity={isDark ? 0.55 : 0.3} />
-      </lineSegments>
+      {/* Warm edge highlight (Dark mode only) */}
+      {isDark && (
+        <lineSegments geometry={edges}>
+          <lineBasicMaterial color="#ff7a2a" transparent opacity={0.55} />
+        </lineSegments>
+      )}
       {/* Outer soft glow shell */}
-      <mesh geometry={geo} scale={1.22}>
+      <mesh geometry={isDark ? geo : geoSphere} scale={1.22}>
         <meshBasicMaterial
           color={isDark ? "#ff6b1a" : "#ff8a3d"}
           transparent
-          opacity={isDark ? 0.045 : 0.03}
+          opacity={isDark ? 0.045 : 0.02}
           blending={THREE.AdditiveBlending}
           side={THREE.BackSide}
         />
@@ -256,6 +259,7 @@ const FloatingShapes = () => {
           <pointLight position={[3, 0.5, 2]} color="#ff6b1a" intensity={isDark ? 1.4 : 2} distance={9} />
 
           <ContactShadow />
+          {isDark ? null : <Stars radius={100} depth={50} count={2000} factor={4} saturation={0} fade speed={1} />}
           <CoreObject isDark={isDark} />
           <Satellite radius={2.7} speed={0.35} offset={0} yTilt={0.4} size={0.28} isDark={isDark} />
           <Satellite radius={3.1} speed={-0.28} offset={2.1} yTilt={0.6} size={0.22} isDark={isDark} />

@@ -63,13 +63,23 @@ const Satellite = ({
   return (
     <mesh ref={ref}>
       <octahedronGeometry args={[size, 0]} />
-      <meshStandardMaterial
-        color={isDark ? "#141414" : "#ffffff"}
-        metalness={isDark ? 0.9 : 0.4}
-        roughness={isDark ? 0.25 : 0.1}
-        emissive={isDark ? "#ff5a1f" : "#ff8a3d"}
-        emissiveIntensity={isDark ? 0.15 : 0.05}
-      />
+      {isDark ? (
+        <meshStandardMaterial
+          color="#141414"
+          metalness={0.9}
+          roughness={0.25}
+          emissive="#ff5a1f"
+          emissiveIntensity={0.15}
+        />
+      ) : (
+        <meshPhysicalMaterial
+          color="#ffffff"
+          metalness={0.2}
+          roughness={0.1}
+          transmission={0.8}
+          thickness={0.5}
+        />
+      )}
     </mesh>
   );
 };
@@ -88,15 +98,29 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
 
   return (
     <group ref={ref} position={[0, 0.1, 0]}>
-      {/* Graphite metallic core */}
+      {/* Core object */}
       <mesh geometry={geo}>
-        <meshStandardMaterial
-          color={isDark ? "#151515" : "#ffffff"}
-          metalness={isDark ? 0.95 : 0.3}
-          roughness={isDark ? 0.28 : 0.1}
-          emissive={isDark ? "#ff5a1f" : "#ff9248"}
-          emissiveIntensity={isDark ? 0.06 : 0.05}
-        />
+        {isDark ? (
+          <meshStandardMaterial
+            color="#151515"
+            metalness={0.95}
+            roughness={0.28}
+            emissive="#ff5a1f"
+            emissiveIntensity={0.06}
+          />
+        ) : (
+          <meshPhysicalMaterial
+            color="#ffffff"
+            metalness={0.1}
+            roughness={0.05}
+            transmission={0.95}
+            thickness={2}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
+            emissive="#ff5a1f"
+            emissiveIntensity={0.02}
+          />
+        )}
       </mesh>
       {/* Warm edge highlight */}
       <lineSegments geometry={edges}>
@@ -221,15 +245,15 @@ const FloatingShapes = () => {
       >
         <Suspense fallback={null}>
           {/* Ambient base */}
-          <ambientLight intensity={isDark ? 0.18 : 0.8} />
+          <ambientLight intensity={isDark ? 0.18 : 1.2} />
           {/* Warm key light (upper right) */}
-          <directionalLight position={[4, 5, 3]} color="#ff8a3d" intensity={isDark ? 1.8 : 1.2} />
+          <directionalLight position={[4, 5, 3]} color={isDark ? "#ff8a3d" : "#ff6b1a"} intensity={isDark ? 1.8 : 2.5} />
           {/* Cool rim light (behind, opposite) */}
-          <directionalLight position={[-3, 2, -4]} color="#c9dcff" intensity={isDark ? 0.9 : 0.6} />
+          <directionalLight position={[-3, 2, -4]} color={isDark ? "#c9dcff" : "#ffffff"} intensity={isDark ? 0.9 : 1.5} />
           {/* Soft bounce fill from below */}
-          <pointLight position={[0, -3, 2]} color="#ff9248" intensity={isDark ? 0.7 : 0.4} distance={8} />
+          <pointLight position={[0, -3, 2]} color="#ff9248" intensity={isDark ? 0.7 : 1.5} distance={8} />
           {/* Deep orange hotspot to punch highlights */}
-          <pointLight position={[3, 0.5, 2]} color="#ff6b1a" intensity={isDark ? 1.4 : 0.8} distance={9} />
+          <pointLight position={[3, 0.5, 2]} color="#ff6b1a" intensity={isDark ? 1.4 : 2} distance={9} />
 
           <ContactShadow />
           <CoreObject isDark={isDark} />

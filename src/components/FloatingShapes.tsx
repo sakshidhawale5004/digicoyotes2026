@@ -113,28 +113,16 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
   if (!isDark) {
     return (
       <group ref={ref} position={[0, 0.2, 0]}>
-        {/* Premium Silver/Glass Coin Base */}
-        <mesh rotation={[Math.PI / 2, 0, 0]}>
-          <cylinderGeometry args={[2.2, 2.2, 0.15, 64]} />
-          <meshPhysicalMaterial
-            color="#ffffff"
-            metalness={0.9}
-            roughness={0.05}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
-          />
-        </mesh>
-        
         {/* Front Logo */}
-        <mesh position={[0, 0, 0.08]}>
-          <planeGeometry args={[3, 3]} />
-          <meshBasicMaterial map={texture} transparent opacity={0.95} />
+        <mesh position={[0, 0, 0.01]}>
+          <planeGeometry args={[4, 4]} />
+          <meshBasicMaterial map={texture} transparent opacity={1} />
         </mesh>
 
         {/* Back Logo */}
-        <mesh position={[0, 0, -0.08]} rotation={[0, Math.PI, 0]}>
-          <planeGeometry args={[3, 3]} />
-          <meshBasicMaterial map={texture} transparent opacity={0.95} />
+        <mesh position={[0, 0, -0.01]} rotation={[0, Math.PI, 0]}>
+          <planeGeometry args={[4, 4]} />
+          <meshBasicMaterial map={texture} transparent opacity={1} />
         </mesh>
       </group>
     );

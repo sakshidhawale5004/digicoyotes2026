@@ -28,7 +28,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
   const { scrollY } = useScroll();
   const bgY = useTransform(scrollY, [0, 600], [0, 160]);
   const contentY = useTransform(scrollY, [0, 600], [0, -60]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+
   const gridY = useTransform(scrollY, [0, 600], [0, -80]);
   
   const { theme } = useTheme();
@@ -70,7 +70,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
       {/* Content */}
       <motion.div
         className={`container mx-auto px-6 relative z-10 ${isDark ? 'text-center' : 'text-center lg:text-left lg:flex lg:items-center'}`}
-        style={{ y: contentY, opacity }}
+        style={{ y: contentY }}
       >
         <div className={`w-full ${isDark ? 'max-w-4xl mx-auto' : 'mx-auto lg:mx-0 lg:max-w-xl xl:max-w-2xl'}`}>
           <motion.div

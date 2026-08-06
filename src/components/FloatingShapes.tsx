@@ -276,19 +276,7 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
       >
         <Suspense fallback={null}>
           {!isDark && (
-            <Environment resolution={256} blur={0.15}>
-              <group>
-                <mesh scale={100}>
-                  <sphereGeometry />
-                  <meshBasicMaterial color="#ffffff" side={THREE.BackSide} />
-                </mesh>
-                <gridHelper args={[40, 40, '#ff5a1f', '#ff8a3d']} position={[0, -4, 0]} />
-                <gridHelper args={[40, 40, '#ff5a1f', '#ff8a3d']} position={[0, 4, 0]} />
-                <gridHelper args={[40, 40, '#ff5a1f', '#ff8a3d']} rotation={[0, 0, Math.PI / 2]} position={[-4, 0, 0]} />
-                <gridHelper args={[40, 40, '#ff5a1f', '#ff8a3d']} rotation={[0, 0, Math.PI / 2]} position={[4, 0, 0]} />
-                <gridHelper args={[40, 40, '#ff5a1f', '#ff8a3d']} rotation={[Math.PI / 2, 0, 0]} position={[0, 0, -4]} />
-              </group>
-            </Environment>
+            <Environment preset="city" />
           )}
           {/* Ambient base */}
           <ambientLight intensity={isDark ? 0.18 : 0.6} />

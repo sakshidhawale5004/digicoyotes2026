@@ -115,18 +115,13 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
         <mesh geometry={geo}>
           <MeshTransmissionMaterial
             backside
-            thickness={2}
-            roughness={0.05}
+            thickness={0.5}
+            roughness={0}
             transmission={1}
-            ior={1.4}
-            chromaticAberration={0.03}
-            anisotropy={0.3}
-            distortion={0.1}
-            distortionScale={0.3}
-            temporalDistortion={0.1}
+            ior={1.15}
+            chromaticAberration={0.015}
             color="#ffffff"
-            attenuationColor="#ff8a3d"
-            attenuationDistance={5}
+            clearcoat={1}
           />
         </mesh>
 
@@ -280,7 +275,7 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
         frameloop={visible ? "always" : "never"}
       >
         <Suspense fallback={null}>
-          {!isDark && <Environment preset="city" />}
+          {!isDark && <Environment preset="studio" />}
           {/* Ambient base */}
           <ambientLight intensity={isDark ? 0.18 : 0.6} />
           {/* Warm key light (upper right) */}

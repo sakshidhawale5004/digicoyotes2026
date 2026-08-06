@@ -113,17 +113,36 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
   if (!isDark) {
     return (
       <group ref={ref} position={[0, 0.2, 0]}>
+        {/* Prismatic glass shell */}
+        <mesh geometry={geo}>
+          <meshPhysicalMaterial
+            color="#ffffff"
+            metalness={0.1}
+            roughness={0.05}
+            transmission={0.95}
+            thickness={2.5}
+            ior={1.4}
+            clearcoat={1}
+            clearcoatRoughness={0.1}
+          />
+        </mesh>
+
         {/* Front Logo */}
-        <mesh position={[0, 0, 0.01]}>
+        <mesh position={[0, 0, 0.05]} scale={0.7}>
           <planeGeometry args={[4, 4]} />
-          <meshBasicMaterial map={texture} transparent opacity={1} />
+          <meshBasicMaterial map={texture} transparent opacity={0.95} side={THREE.FrontSide} />
         </mesh>
 
         {/* Back Logo */}
-        <mesh position={[0, 0, -0.01]} rotation={[0, Math.PI, 0]}>
+        <mesh position={[0, 0, -0.05]} scale={0.7} rotation={[0, Math.PI, 0]}>
           <planeGeometry args={[4, 4]} />
-          <meshBasicMaterial map={texture} transparent opacity={1} />
+          <meshBasicMaterial map={texture} transparent opacity={0.95} side={THREE.FrontSide} />
         </mesh>
+
+        {/* Bright orange wireframe */}
+        <lineSegments geometry={edges} scale={1.01}>
+          <lineBasicMaterial color="#ff7a2a" transparent opacity={0.25} />
+        </lineSegments>
       </group>
     );
   }

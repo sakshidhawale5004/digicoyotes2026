@@ -46,14 +46,23 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
     >
       {/* Parallax photo */}
       <motion.div
-        className="absolute inset-0 bg-cover bg-center scale-110 opacity-40"
-        style={{ backgroundImage: `url(${backgroundImage})`, y: bgY }}
+        className={`absolute inset-0 bg-cover bg-center scale-110 ${isDark ? 'opacity-40' : 'opacity-[0.08] mix-blend-luminosity'}`}
+        style={{ backgroundImage: `url(${backgroundImage})`, y: bgY, filter: isDark ? 'none' : 'grayscale(100%)' }}
       />
       {/* Depth overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/85 via-background/95 to-background" />
+      <div className={`absolute inset-0 bg-gradient-to-b ${isDark ? 'from-background/85 via-background/95 to-background' : 'from-background/40 via-background/70 to-background'}`} />
+
+      {/* Modern bright geometric shapes for day view */}
+      {!isDark && (
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/30 to-orange-400/10 blur-[100px] opacity-70 animate-float-y" />
+          <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-primary/20 to-yellow-400/10 blur-[80px] opacity-60 animate-drift-x" />
+          <div className="absolute top-[30%] left-[20%] w-[300px] h-[300px] rounded-full bg-white/60 blur-[60px] opacity-90 mix-blend-overlay" />
+        </div>
+      )}
 
       {/* 3D holographic scene */}
-      <FloatingShapes className={`absolute inset-0 ${!isDark ? 'lg:left-[60%] lg:w-[45%]' : ''}`} />
+      <FloatingShapes className={`absolute inset-0 ${!isDark ? 'lg:left-[55%] lg:w-[50%]' : ''}`} />
 
       {/* 3D perspective grid floor */}
       <motion.div
@@ -63,16 +72,16 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
       />
 
       {/* Glow orbs */}
-      <div className="orb orb-primary w-[520px] h-[520px] -top-40 -left-32 animate-float-y" />
-      <div className="orb orb-warm w-[460px] h-[460px] -bottom-40 -right-24 animate-drift-x" style={{ animationDelay: "-4s" }} />
-      <div className="orb orb-primary w-[240px] h-[240px] top-1/3 right-1/4 opacity-30" />
+      <div className={`orb orb-primary w-[520px] h-[520px] -top-40 -left-32 animate-float-y ${!isDark ? 'opacity-20 hidden lg:block' : ''}`} />
+      <div className={`orb orb-warm w-[460px] h-[460px] -bottom-40 -right-24 animate-drift-x ${!isDark ? 'opacity-20 hidden lg:block' : ''}`} style={{ animationDelay: "-4s" }} />
+      <div className={`orb orb-primary w-[240px] h-[240px] top-1/3 right-1/4 ${isDark ? 'opacity-30' : 'opacity-10 hidden'}`} />
 
       {/* Content */}
       <motion.div
         className={`container mx-auto px-6 relative z-10 ${isDark ? 'text-center' : 'text-center lg:text-left lg:flex lg:items-center'}`}
         style={{ y: contentY }}
       >
-        <div className={`w-full ${isDark ? 'max-w-4xl mx-auto' : 'mx-auto lg:mx-0 lg:max-w-xl xl:max-w-2xl'}`}>
+        <div className={`w-full ${isDark ? 'max-w-4xl mx-auto' : 'mx-auto lg:mx-0 lg:max-w-xl xl:max-w-[700px] p-6 sm:p-10 lg:p-12 rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)]'}`}>
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-primary/40 bg-primary/10 backdrop-blur"
             initial={{ opacity: 0, y: 20 }}
@@ -129,7 +138,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
             </Link>
             <Link
               to="/clients"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-foreground/25 text-foreground/90 backdrop-blur hover:bg-foreground/10 transition"
+              className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-full border transition ${isDark ? 'border-foreground/25 text-foreground/90 backdrop-blur hover:bg-foreground/10' : 'border-primary/20 text-foreground/90 bg-white/50 hover:bg-white/80 hover:shadow-lg'}`}
             >
               View Portfolio
             </Link>

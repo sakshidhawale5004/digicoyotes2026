@@ -74,12 +74,10 @@ const Satellite = ({
           emissiveIntensity={0.15}
         />
       ) : (
-        <meshPhysicalMaterial
-          color="#ffffff"
-          metalness={0.2}
-          roughness={0.1}
-          transmission={0.8}
-          thickness={0.5}
+        <meshStandardMaterial
+          color="#ff5a1f"
+          metalness={0.15}
+          roughness={0.2}
         />
       )}
     </mesh>
@@ -113,36 +111,36 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
   if (!isDark) {
     return (
       <group ref={ref} position={[0, 0.2, 0]}>
-        {/* Prismatic glass shell */}
+        {/* Solid branded orange core */}
         <mesh geometry={geo}>
-          <meshPhysicalMaterial
-            color="#ffffff"
-            metalness={0.1}
-            roughness={0.05}
-            transmission={0.95}
-            thickness={2.5}
-            ior={1.4}
-            clearcoat={1}
-            clearcoatRoughness={0.1}
+          <meshStandardMaterial
+            color="#ff5a1f"
+            metalness={0.15}
+            roughness={0.3}
+            emissive="#ff8a3d"
+            emissiveIntensity={0.2}
           />
         </mesh>
 
-        {/* Front Logo */}
-        <mesh position={[0, 0, 0.05]} scale={0.7}>
-          <planeGeometry args={[4, 4]} />
-          <meshBasicMaterial map={texture} transparent opacity={0.95} side={THREE.FrontSide} />
-        </mesh>
-
-        {/* Back Logo */}
-        <mesh position={[0, 0, -0.05]} scale={0.7} rotation={[0, Math.PI, 0]}>
-          <planeGeometry args={[4, 4]} />
-          <meshBasicMaterial map={texture} transparent opacity={0.95} side={THREE.FrontSide} />
-        </mesh>
-
-        {/* Bright orange wireframe */}
+        {/* Clean white wireframe */}
         <lineSegments geometry={edges} scale={1.01}>
-          <lineBasicMaterial color="#ff7a2a" transparent opacity={0.25} />
+          <lineBasicMaterial color="#ffffff" transparent opacity={0.6} />
         </lineSegments>
+
+        {/* Orbiting Logo */}
+        <group position={[0, 0, 1.8]} scale={0.7}>
+          <mesh>
+            <planeGeometry args={[4, 4]} />
+            <meshBasicMaterial map={texture} transparent opacity={1} side={THREE.FrontSide} />
+          </mesh>
+        </group>
+        
+        <group position={[0, 0, -1.8]} scale={0.7} rotation={[0, Math.PI, 0]}>
+          <mesh>
+            <planeGeometry args={[4, 4]} />
+            <meshBasicMaterial map={texture} transparent opacity={1} side={THREE.FrontSide} />
+          </mesh>
+        </group>
       </group>
     );
   }
@@ -282,15 +280,15 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
       >
         <Suspense fallback={null}>
           {/* Ambient base */}
-          <ambientLight intensity={isDark ? 0.18 : 1.2} />
+          <ambientLight intensity={isDark ? 0.18 : 0.6} />
           {/* Warm key light (upper right) */}
-          <directionalLight position={[4, 5, 3]} color={isDark ? "#ff8a3d" : "#ff6b1a"} intensity={isDark ? 1.8 : 2.5} />
+          <directionalLight position={[4, 5, 3]} color={isDark ? "#ff8a3d" : "#ff6b1a"} intensity={isDark ? 1.8 : 1.2} />
           {/* Cool rim light (behind, opposite) */}
-          <directionalLight position={[-3, 2, -4]} color={isDark ? "#c9dcff" : "#ffffff"} intensity={isDark ? 0.9 : 1.5} />
+          <directionalLight position={[-3, 2, -4]} color={isDark ? "#c9dcff" : "#ffffff"} intensity={isDark ? 0.9 : 0.6} />
           {/* Soft bounce fill from below */}
-          <pointLight position={[0, -3, 2]} color="#ff9248" intensity={isDark ? 0.7 : 1.5} distance={8} />
+          <pointLight position={[0, -3, 2]} color="#ff9248" intensity={isDark ? 0.7 : 0.8} distance={8} />
           {/* Deep orange hotspot to punch highlights */}
-          <pointLight position={[3, 0.5, 2]} color="#ff6b1a" intensity={isDark ? 1.4 : 2} distance={9} />
+          <pointLight position={[3, 0.5, 2]} color="#ff6b1a" intensity={isDark ? 1.4 : 1} distance={9} />
 
           <ContactShadow />
           <CoreObject isDark={isDark} />

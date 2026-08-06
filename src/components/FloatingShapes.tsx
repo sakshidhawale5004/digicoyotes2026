@@ -275,7 +275,7 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
         frameloop={visible ? "always" : "never"}
       >
         <Suspense fallback={null}>
-          {!isDark && <Environment preset="studio" blur={0.8} />}
+          {!isDark && <Environment preset="dawn" blur={0.8} />}
           {/* Ambient base */}
           <ambientLight intensity={isDark ? 0.18 : 0.6} />
           {/* Warm key light (upper right) */}

@@ -2,7 +2,7 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useRef, Suspense, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
-import { Float, Stars, useTexture } from "@react-three/drei";
+import { Float, Stars, useTexture, Environment, MeshTransmissionMaterial } from "@react-three/drei";
 import logoUrl from "@/assets/logo.png";
 
 /**
@@ -111,36 +111,37 @@ const CoreObject = ({ isDark }: { isDark: boolean }) => {
   if (!isDark) {
     return (
       <group ref={ref} position={[0, 0.2, 0]}>
-        {/* Solid branded orange core */}
+        {/* Premium Glass Core using MeshTransmissionMaterial */}
         <mesh geometry={geo}>
-          <meshStandardMaterial
-            color="#ff5a1f"
-            metalness={0.15}
-            roughness={0.3}
-            emissive="#ff8a3d"
-            emissiveIntensity={0.2}
+          <MeshTransmissionMaterial
+            backside
+            thickness={2}
+            roughness={0.05}
+            transmission={1}
+            ior={1.4}
+            chromaticAberration={0.03}
+            anisotropy={0.3}
+            distortion={0.1}
+            distortionScale={0.3}
+            temporalDistortion={0.1}
+            color="#ffffff"
+            attenuationColor="#ff8a3d"
+            attenuationDistance={5}
           />
         </mesh>
 
-        {/* Clean white wireframe */}
-        <lineSegments geometry={edges} scale={1.01}>
-          <lineBasicMaterial color="#ffffff" transparent opacity={0.6} />
-        </lineSegments>
-
-        {/* Orbiting Logo */}
-        <group position={[0, 0, 1.8]} scale={0.7}>
-          <mesh>
-            <planeGeometry args={[4, 4]} />
-            <meshBasicMaterial map={texture} transparent opacity={1} side={THREE.FrontSide} />
+        {/* Orbiting Logo inside the glass */}
+        <group scale={0.75}>
+          <mesh position={[0, 0, 0.05]}>
+            <planeGeometry args={[3.5, 3.5]} />
+            <meshBasicMaterial map={texture} transparent opacity={1} side={THREE.DoubleSide} />
           </mesh>
         </group>
         
-        <group position={[0, 0, -1.8]} scale={0.7} rotation={[0, Math.PI, 0]}>
-          <mesh>
-            <planeGeometry args={[4, 4]} />
-            <meshBasicMaterial map={texture} transparent opacity={1} side={THREE.FrontSide} />
-          </mesh>
-        </group>
+        {/* Subtle wireframe overlay */}
+        <lineSegments geometry={edges} scale={1.01}>
+          <lineBasicMaterial color="#ff5a1f" transparent opacity={0.15} />
+        </lineSegments>
       </group>
     );
   }
@@ -279,6 +280,7 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
         frameloop={visible ? "always" : "never"}
       >
         <Suspense fallback={null}>
+          {!isDark && <Environment preset="city" />}
           {/* Ambient base */}
           <ambientLight intensity={isDark ? 0.18 : 0.6} />
           {/* Warm key light (upper right) */}

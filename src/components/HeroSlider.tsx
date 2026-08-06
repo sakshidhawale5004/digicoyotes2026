@@ -81,7 +81,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
         className={`container mx-auto px-6 relative z-10 ${isDark ? 'text-center' : 'text-center lg:text-left lg:flex lg:items-center'}`}
         style={{ y: contentY }}
       >
-        <div className={`w-full ${isDark ? 'max-w-4xl mx-auto' : 'mx-auto lg:mx-0 lg:max-w-xl xl:max-w-[700px] p-6 sm:p-10 lg:p-12 rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)]'}`}>
+        <div className={`w-full ${isDark ? 'max-w-4xl mx-auto' : 'mx-auto lg:mx-0 lg:max-w-xl xl:max-w-[700px]'}`}>
           <motion.div
             className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 rounded-full border border-primary/40 bg-primary/10 backdrop-blur"
             initial={{ opacity: 0, y: 20 }}

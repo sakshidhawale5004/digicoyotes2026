@@ -46,11 +46,11 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
     >
       {/* Parallax photo */}
       <motion.div
-        className={`absolute inset-0 bg-cover bg-center scale-110 ${isDark ? 'opacity-40' : 'opacity-[0.05] mix-blend-luminosity'}`}
+        className={`absolute inset-0 bg-cover bg-center scale-110 ${isDark ? 'opacity-40' : 'opacity-[0.12] mix-blend-luminosity'}`}
         style={{ backgroundImage: `url(${backgroundImage})`, y: bgY, filter: isDark ? 'none' : 'grayscale(100%)' }}
       />
       {/* Depth overlays */}
-      <div className={`absolute inset-0 bg-gradient-to-b ${isDark ? 'from-background/85 via-background/95 to-background' : 'from-background/80 via-background/95 to-background'}`} />
+      <div className={`absolute inset-0 bg-gradient-to-b ${isDark ? 'from-background/85 via-background/95 to-background' : 'from-background/30 via-background/60 to-background'}`} />
 
       {/* Modern bright geometric shapes for day view */}
       {!isDark && (

@@ -171,24 +171,26 @@ const Index = () => {
       </section>
 
       {/* Clients / Trusted By */}
-      <section className="py-16 bg-card border-y border-border">
+      <section className="py-20 bg-card border-y border-border">
         <div className="container mx-auto px-6">
-          <p className="section-label text-center mb-2">OUR CLIENTS</p>
-          <h3 className="font-display text-xl md:text-2xl font-bold text-center mb-10">
+          <p className="section-label text-center mb-3">OUR CLIENTS</p>
+          <h3 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
             Your growth is our <span className="text-gradient-orange">greatest achievement</span>
           </h3>
-          <div className="relative overflow-hidden group [mask-image:linear-gradient(90deg,transparent,black_8%,black_92%,transparent)]">
-            <div className="flex gap-4 animate-marquee w-max group-hover:[animation-play-state:paused]">
+          <div className="relative overflow-hidden group [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+            <div className="flex gap-6 animate-marquee w-max py-4 group-hover:[animation-play-state:paused]" style={{ animationDuration: '60s' }}>
               {[...clients, ...clients].map((client, i) => (
                 <div
                   key={i}
-                  className="border-holo shrink-0 w-56 rounded-2xl bg-background/60 backdrop-blur-sm p-5 flex flex-col items-center text-center gap-2 hover:bg-background transition-colors"
+                  className="shrink-0 w-[220px] rounded-2xl bg-background border border-border p-6 flex flex-col items-center text-center gap-4 hover:border-primary/40 hover:shadow-[0_12px_30px_-15px_hsl(24,95%,53%,0.4)] transition-all duration-300 cursor-pointer group/card"
                 >
-                  <div className="w-14 h-14 rounded-xl bg-gradient-orange flex items-center justify-center font-display font-bold text-primary-foreground text-lg shadow-[0_8px_24px_-8px_hsl(24,95%,53%,0.6)]">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex-shrink-0 flex items-center justify-center font-display font-bold text-primary text-xl group-hover/card:bg-gradient-orange group-hover/card:text-primary-foreground group-hover/card:shadow-[0_8px_20px_-8px_hsl(24,95%,53%,0.6)] transition-all duration-300">
                     {client.name.split(" ").filter(w => /[A-Za-z]/.test(w[0])).slice(0, 2).map(w => w[0]).join("")}
                   </div>
-                  <p className="font-display font-semibold text-sm leading-tight mt-1 line-clamp-2">{client.name}</p>
-                  <p className="text-primary text-xs font-medium tracking-wide">{client.category}</p>
+                  <div className="flex flex-col w-full">
+                    <p className="font-display font-semibold text-base leading-tight line-clamp-2 text-foreground group-hover/card:text-primary transition-colors">{client.name}</p>
+                    <p className="text-muted-foreground text-sm font-medium mt-1.5">{client.category}</p>
+                  </div>
                 </div>
               ))}
             </div>

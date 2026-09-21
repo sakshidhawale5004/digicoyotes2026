@@ -69,11 +69,11 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
               <AnimatePresence mode="wait">
                 <motion.span
                   key={rotatingWords[currentWord]}
-                  className="inline-block fiery-text px-2 py-1"
-                  initial={{ opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -15 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  className="inline-block neon-block-text px-2 py-1"
+                  initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)", rotateX: 90 }}
+                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)", rotateX: 0 }}
+                  exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)", rotateX: -90 }}
+                  transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
                 >
                   {rotatingWords[currentWord]}
                 </motion.span>

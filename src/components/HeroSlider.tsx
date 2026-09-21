@@ -34,10 +34,13 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
   return (
     <section
       ref={ref}
-      className="relative min-h-[100vh] flex items-center overflow-hidden bg-[#0a0a0a] text-white"
+      className="relative min-h-[100vh] flex items-center overflow-hidden bg-[#f8f7f5] text-[#0a0a0a] bg-grid-pattern"
     >
-      {/* 3D Black Hole scene */}
-      <FloatingShapes className="absolute inset-0 lg:left-1/2 lg:w-1/2" />
+      {/* Soft orange glow on the right */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ff5a1f]/10 rounded-full blur-[120px] pointer-events-none" />
+
+      {/* 3D Scene */}
+      <FloatingShapes className="absolute inset-0 lg:left-1/2 lg:w-1/2 opacity-80" />
 
       {/* Content */}
       <motion.div
@@ -51,14 +54,14 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/70">
+            <span className="w-2 h-2 rounded-full bg-[#ff5a1f] animate-pulse" />
+            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-gray-600">
               {label}
             </span>
           </motion.div>
 
           <motion.h1
-            className="font-display font-bold text-white leading-[1.0] tracking-[-0.04em] text-balance text-6xl md:text-7xl lg:text-[5.5rem]"
+            className="font-display font-bold text-[#0a0a0a] leading-[1.0] tracking-[-0.04em] text-balance text-6xl md:text-7xl lg:text-[5.5rem]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
@@ -82,7 +85,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
           </motion.h1>
 
           <motion.p
-            className="mt-8 text-white/70 text-lg md:text-xl max-w-xl leading-relaxed text-balance mx-auto lg:mx-0"
+            className="mt-8 text-gray-600 text-lg md:text-xl max-w-xl leading-relaxed text-balance mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
@@ -96,12 +99,12 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}
           >
-            <Link to={ctaLink} className="inline-flex items-center gap-2 bg-white text-[#0a0a0a] px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transition-colors duration-300">
+            <Link to={ctaLink} className="inline-flex items-center gap-2 bg-[#0a0a0a] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-800 transition-colors duration-300 shadow-xl shadow-black/10">
               {ctaText} <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/clients"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-white/20 text-white font-semibold text-lg hover:border-white transition-colors duration-300"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border-2 border-gray-300 text-[#0a0a0a] font-semibold text-lg hover:border-gray-500 bg-white/50 backdrop-blur-sm transition-colors duration-300"
             >
               View Portfolio
             </Link>

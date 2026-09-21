@@ -73,8 +73,8 @@ const DigitalCore = () => {
           color="#ff5a1f" 
           wireframe 
           transparent 
-          opacity={0.3} 
-          blending={THREE.AdditiveBlending}
+          opacity={0.6} 
+          blending={THREE.NormalBlending}
         />
       </mesh>
 
@@ -88,8 +88,8 @@ const DigitalCore = () => {
           size={0.06} 
           vertexColors 
           transparent 
-          opacity={0.7}
-          blending={THREE.AdditiveBlending}
+          opacity={0.9}
+          blending={THREE.NormalBlending}
           depthWrite={false}
         />
       </points>
@@ -124,7 +124,7 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
   if (!enabled) return null;
 
   return (
-    <div className={`${className} pointer-events-none z-0 mix-blend-screen`}>
+    <div className={`${className} pointer-events-none z-0`}>
       <Canvas
         camera={{ position: [0, 0, 8], fov: 45 }}
         dpr={[1, 1.5]}

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 import logo from "@/assets/logo.png";
 
 const services = [
@@ -32,6 +33,7 @@ const Navbar = () => {
   const triggerRef = useRef<HTMLDivElement>(null);
   const closeTimer = useRef<number | null>(null);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -142,6 +144,15 @@ const Navbar = () => {
           </Link>
         </div>
 
+        {/* Theme Toggle */}
+        <button
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-surface-dark-foreground/5 hover:bg-surface-dark-foreground/10 transition-colors text-surface-dark-foreground"
+        >
+          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <span className="sr-only">Toggle theme</span>
+        </button>
 
         {/* CTA */}
         <Link to="/contact" className="hidden md:inline-flex px-6 py-2.5 bg-gradient-orange text-white text-sm font-semibold rounded-full hover:opacity-90 transition-opacity shadow-lg shadow-orange-500/25">
@@ -150,6 +161,13 @@ const Navbar = () => {
 
         {/* Mobile Toggle & Theme */}
         <div className="flex md:hidden items-center gap-4">
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="flex items-center justify-center w-10 h-10 rounded-full bg-surface-dark-foreground/5 text-surface-dark-foreground"
+          >
+            <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+            <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          </button>
           <button className="text-surface-dark-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

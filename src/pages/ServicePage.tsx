@@ -452,6 +452,138 @@ const servicesData: Record<string, ServiceData> = {
     ],
     benefits: ["Authoritative third-party validation", "Placements in outlets your buyers read", "Stronger founder profile", "Long-lived SEO backlinks"],
   },
+  "dynamic-e-commerce-platform": {
+    title: "Dynamic E-Commerce Platform",
+    subtitle: "Scalable and engaging online stores",
+    description: "We built a high-converting e-commerce platform designed to maximize user engagement and streamline the purchasing journey.",
+    rotatingWords: ["E-Commerce", "UX Design", "Conversion Rate", "Sales Growth"],
+    tagline: "SCALABLE STORES FOR MAXIMUM SALES.",
+    features: [
+      "Custom Storefront Design",
+      "Seamless Checkout Experience",
+      "Inventory Management Integration",
+      "Mobile-First Architecture",
+      "Secure Payment Gateways",
+      "Performance Optimization"
+    ],
+    process: [
+      { title: "Discovery", desc: "Understanding the product catalog and target audience." },
+      { title: "Design", desc: "Creating intuitive shopping workflows and UI." },
+      { title: "Development", desc: "Building the scalable e-commerce infrastructure." },
+      { title: "Launch", desc: "Testing transactions and deploying to production." }
+    ],
+    benefits: ["Higher conversion rates", "Reduced cart abandonment", "Easier inventory management", "Seamless user experience"]
+  },
+  "innovative-identity-design": {
+    title: "Innovative Identity Design",
+    subtitle: "Crafting memorable brand identities",
+    description: "A comprehensive brand identity overhaul that redefines how the company communicates its core values and vision.",
+    rotatingWords: ["Brand Identity", "Visual Design", "Logo Creation", "Brand Strategy"],
+    tagline: "MEMORABLE IDENTITIES THAT STAND OUT.",
+    features: [
+      "Logo & Typography Design",
+      "Color Palette Definition",
+      "Brand Guidelines Creation",
+      "Marketing Collateral Design",
+      "Social Media Kit",
+      "Stationery Design"
+    ],
+    process: [
+      { title: "Research", desc: "Analyzing competitors and market positioning." },
+      { title: "Ideation", desc: "Sketching and conceptualizing visual directions." },
+      { title: "Refinement", desc: "Polishing the chosen identity assets." },
+      { title: "Delivery", desc: "Providing comprehensive brand guidelines." }
+    ],
+    benefits: ["Stronger brand recall", "Consistent messaging across channels", "Professional and trustworthy image", "Differentiation from competitors"]
+  },
+  "dynamic-digital-campaign": {
+    title: "Dynamic Digital Campaign",
+    subtitle: "Data-driven marketing that converts",
+    description: "An aggressive, multi-channel digital marketing campaign that drastically increased lead generation and brand awareness.",
+    rotatingWords: ["Digital Campaign", "Lead Generation", "Ad Strategy", "ROI Focus"],
+    tagline: "CAMPAIGNS THAT DRIVE MEASURABLE ROI.",
+    features: [
+      "Multi-Channel Strategy",
+      "Targeted Ad Placements",
+      "Conversion Rate Optimization",
+      "A/B Testing",
+      "Performance Analytics",
+      "Retargeting Campaigns"
+    ],
+    process: [
+      { title: "Strategy", desc: "Defining objectives and key performance indicators." },
+      { title: "Creative", desc: "Designing ad creatives and writing compelling copy." },
+      { title: "Execution", desc: "Launching campaigns across selected networks." },
+      { title: "Optimization", desc: "Monitoring and adjusting bids for maximum ROI." }
+    ],
+    benefits: ["Lower customer acquisition cost", "Higher click-through rates", "Scalable lead generation", "Data-backed insights"]
+  },
+  "impactful-content-creation": {
+    title: "Impactful Content Creation",
+    subtitle: "Stories that resonate and engage",
+    description: "A content strategy focused on delivering high-value, engaging narratives that build authority and trust with the audience.",
+    rotatingWords: ["Content Strategy", "Copywriting", "Visual Storytelling", "Brand Voice"],
+    tagline: "STORIES THAT BUILD TRUST AND AUTHORITY.",
+    features: [
+      "Editorial Planning",
+      "SEO-Optimized Copywriting",
+      "Visual Asset Creation",
+      "Social Media Posts",
+      "Video Scripts",
+      "Case Studies"
+    ],
+    process: [
+      { title: "Audit", desc: "Reviewing existing content and identifying gaps." },
+      { title: "Planning", desc: "Creating a robust editorial calendar." },
+      { title: "Creation", desc: "Drafting, designing, and refining the content." },
+      { title: "Distribution", desc: "Publishing and promoting across relevant channels." }
+    ],
+    benefits: ["Increased organic traffic", "Higher audience engagement", "Established thought leadership", "Better brand loyalty"]
+  },
+  "visionary-growth-strategy": {
+    title: "Visionary Growth Strategy",
+    subtitle: "Scaling businesses to new heights",
+    description: "A comprehensive growth blueprint that aligned marketing, sales, and product teams to accelerate revenue and market share.",
+    rotatingWords: ["Growth Strategy", "Market Expansion", "Revenue Operations", "Scaling"],
+    tagline: "BLUEPRINTS FOR ACCELERATED GROWTH.",
+    features: [
+      "Market Research & Analysis",
+      "Revenue Operations Alignment",
+      "Go-To-Market Strategy",
+      "Funnel Optimization",
+      "Customer Retention Programs",
+      "Scalability Planning"
+    ],
+    process: [
+      { title: "Analysis", desc: "Evaluating current performance and market opportunities." },
+      { title: "Strategy", desc: "Developing a tailored growth roadmap." },
+      { title: "Implementation", desc: "Aligning teams and executing the growth initiatives." },
+      { title: "Measurement", desc: "Tracking progress against aggressive KPIs." }
+    ],
+    benefits: ["Accelerated revenue growth", "Improved customer lifetime value", "Streamlined operations", "Clear strategic direction"]
+  },
+  "interactive-website-redesign": {
+    title: "Interactive Website Redesign",
+    subtitle: "Modern, fast, and user-centric web experiences",
+    description: "A complete overhaul of the corporate website, focusing on interactive elements, speed, and a flawless user experience.",
+    rotatingWords: ["Web Redesign", "UI/UX", "Interactive Design", "Performance"],
+    tagline: "EXPERIENCES THAT DELIGHT USERS.",
+    features: [
+      "Modern UI/UX Design",
+      "Interactive Animations",
+      "Speed Optimization",
+      "Mobile Responsiveness",
+      "CMS Integration",
+      "Accessibility Compliance"
+    ],
+    process: [
+      { title: "Audit", desc: "Analyzing the legacy site's shortcomings." },
+      { title: "Wireframing", desc: "Structuring the new intuitive user journeys." },
+      { title: "Design", desc: "Crafting beautiful, interactive high-fidelity mockups." },
+      { title: "Development", desc: "Building the site with modern, fast web technologies." }
+    ],
+    benefits: ["Lower bounce rates", "Higher user engagement", "Better SEO rankings", "Easier content management"]
+  }
 };
 
 const allServices = [
@@ -474,6 +606,12 @@ const allServices = [
   { name: "Video Production", path: "/services/video-production" },
   { name: "Email Marketing", path: "/services/email-marketing" },
   { name: "Public Relations", path: "/services/public-relations" },
+  { name: "Dynamic E-Commerce Platform", path: "/services/dynamic-e-commerce-platform" },
+  { name: "Innovative Identity Design", path: "/services/innovative-identity-design" },
+  { name: "Dynamic Digital Campaign", path: "/services/dynamic-digital-campaign" },
+  { name: "Impactful Content Creation", path: "/services/impactful-content-creation" },
+  { name: "Visionary Growth Strategy", path: "/services/visionary-growth-strategy" },
+  { name: "Interactive Website Redesign", path: "/services/interactive-website-redesign" },
 ];
 
 const ServicePage = () => {

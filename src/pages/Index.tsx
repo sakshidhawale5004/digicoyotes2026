@@ -155,12 +155,12 @@ const Index = () => {
       </div>
 
       {/* Video Section */}
-      <section className="py-24 bg-[#222022]">
+      <section className="py-24 bg-gray-50">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-16 tracking-tight leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-[#0a0a0a] mb-16 tracking-tight leading-tight">
             Be chosen before<br />the search begins
           </h2>
-          <div className="max-w-5xl mx-auto rounded-md overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+          <div className="max-w-5xl mx-auto rounded-md overflow-hidden shadow-2xl">
             <video 
               src="/video.mp4" 
               autoPlay 
@@ -248,10 +248,10 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-10 rounded-2xl bg-[#0a0a0a] text-white transition-all duration-300 cursor-pointer h-full group hover:-translate-y-2">
+                <div className="p-10 rounded-2xl bg-white border border-gray-200 text-[#0a0a0a] transition-all duration-300 cursor-pointer h-full group hover:-translate-y-2 hover:shadow-xl hover:border-[#ff5a1f]/50">
                   <s.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
                   <h3 className="font-display font-semibold text-2xl mb-4">{s.title}</h3>
-                  <p className="text-white/70 text-base leading-relaxed">{s.desc}</p>
+                  <p className="text-gray-600 text-base leading-relaxed">{s.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -259,44 +259,47 @@ const Index = () => {
         </div>
       </section>
       {/* Portfolio Section */}
-      <section className="py-24 bg-[#0a0a0a] text-white">
+      <section className="py-24 bg-white text-[#0a0a0a]">
         <div className="container mx-auto px-6">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4 text-center">OUR PORTFOLIO</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-16 text-center">
             Our recent <span className="text-[#ff5a1f]">projects</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, i) => (
-              <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="group flex flex-col gap-5 cursor-pointer h-full">
-                  <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-black">
-                    <img 
-                      src={item.image} 
-                      alt={item.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-full border border-white/10 shadow-lg">
-                      {item.category}
-                    </div>
-                    {/* Hover Circle Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="w-16 h-16 rounded-full border border-white flex items-center justify-center backdrop-blur-sm bg-black/20">
-                        <ArrowUpRight className="w-6 h-6 text-white" />
+            {portfolioItems.map((item, i) => {
+              const slug = item.title.toLowerCase().replace(/\s+/g, '-');
+              return (
+                <ScrollReveal key={i} delay={i * 0.1}>
+                  <Link to={`/services/${slug}`} className="group flex flex-col gap-5 cursor-pointer h-full">
+                    <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100">
+                      <img 
+                        src={item.image} 
+                        alt={item.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md text-[#0a0a0a] text-xs font-semibold px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+                        {item.category}
+                      </div>
+                      {/* Hover Circle Overlay */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div className="w-16 h-16 rounded-full border border-white flex items-center justify-center backdrop-blur-sm bg-black/20">
+                          <ArrowUpRight className="w-6 h-6 text-white" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <h3 className="font-display font-semibold text-2xl text-center text-white group-hover:text-[#ff5a1f] transition-colors">
-                    {item.title}
-                  </h3>
-                </div>
-              </ScrollReveal>
-            ))}
+                    <h3 className="font-display font-semibold text-2xl text-center text-[#0a0a0a] group-hover:text-[#ff5a1f] transition-colors">
+                      {item.title}
+                    </h3>
+                  </Link>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Stats */}
-      <section className="py-24 bg-[#0a0a0a] text-white">
+      <section className="py-24 bg-gray-50 text-[#0a0a0a]">
         <div className="container mx-auto px-6">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">EXPERTISE</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">
@@ -306,8 +309,8 @@ const Index = () => {
             {stats.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
                 <div className="p-6 border-l-2 border-[#ff5a1f]/30 pl-8">
-                  <p className="font-display text-5xl md:text-6xl font-extrabold text-white mb-4 leading-none">{s.value}</p>
-                  <p className="text-white/70 text-base">{s.label}</p>
+                  <p className="font-display text-5xl md:text-6xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{s.value}</p>
+                  <p className="text-gray-600 text-base">{s.label}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -355,16 +358,16 @@ const Index = () => {
       </section>
 
       {/* Features */}
-      <section className="py-24 bg-[#0a0a0a] text-white">
+      <section className="py-24 bg-gray-50 text-[#0a0a0a]">
         <div className="container mx-auto px-6">
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">FEATURES</p>
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">Innovative features for your <span className="text-[#ff5a1f]">digital success</span></h2>
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
-              <div key={i} className="p-10 border border-white/10 hover:border-[#ff5a1f]/50 transition-colors duration-300">
+              <div key={i} className="p-10 border border-gray-200 bg-white hover:border-[#ff5a1f]/50 hover:shadow-lg transition-all duration-300">
                 <f.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
                 <h3 className="font-display font-semibold text-3xl mb-4">{f.title}</h3>
-                <p className="text-white/70 text-lg leading-relaxed">{f.desc}</p>
+                <p className="text-gray-600 text-lg leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>

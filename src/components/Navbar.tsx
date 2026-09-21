@@ -23,6 +23,12 @@ const services = [
   { name: "Video Production", path: "/services/video-production" },
   { name: "Email Marketing", path: "/services/email-marketing" },
   { name: "Public Relations", path: "/services/public-relations" },
+  { name: "Dynamic E-Commerce Platform", path: "/services/dynamic-e-commerce-platform" },
+  { name: "Innovative Identity Design", path: "/services/innovative-identity-design" },
+  { name: "Dynamic Digital Campaign", path: "/services/dynamic-digital-campaign" },
+  { name: "Impactful Content Creation", path: "/services/impactful-content-creation" },
+  { name: "Visionary Growth Strategy", path: "/services/visionary-growth-strategy" },
+  { name: "Interactive Website Redesign", path: "/services/interactive-website-redesign" },
 ];
 
 const Navbar = () => {

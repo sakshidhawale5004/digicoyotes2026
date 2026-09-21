@@ -143,6 +143,10 @@ const Navbar = () => {
             Our Clients
           </Link>
 
+          <Link to="/insights" className={`text-sm font-medium transition-colors ${isActive("/insights") ? "text-primary" : "text-surface-dark-foreground/80 hover:text-primary"}`}>
+            Insights
+          </Link>
+
           <Link to="/contact" className={`text-sm font-medium transition-colors ${isActive("/contact") ? "text-primary" : "text-surface-dark-foreground/80 hover:text-primary"}`}>
             Contact Us
           </Link>
@@ -176,6 +180,7 @@ const Navbar = () => {
             ))}
           </div>
           <Link to="/clients" className="block text-surface-dark-foreground/80 font-medium" onClick={() => setMobileOpen(false)}>Our Clients</Link>
+          <Link to="/insights" className="block text-surface-dark-foreground/80 font-medium" onClick={() => setMobileOpen(false)}>Insights</Link>
           <Link to="/contact" className="block text-surface-dark-foreground/80 font-medium" onClick={() => setMobileOpen(false)}>Contact Us</Link>
         </div>
       )}

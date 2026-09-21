@@ -10,6 +10,7 @@ import About from "./pages/About.tsx";
 import Contact from "./pages/Contact.tsx";
 import ServicePage from "./pages/ServicePage.tsx";
 import Clients from "./pages/Clients.tsx";
+import Insights from "./pages/Insights.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Loader from "@/components/Loader";
@@ -35,6 +36,7 @@ const App = () => {
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/clients" element={<Clients />} />
+                <Route path="/insights" element={<Insights />} />
                 <Route path="/services/:slug" element={<ServicePage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

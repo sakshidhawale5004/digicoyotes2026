@@ -174,30 +174,42 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-24 bg-background">
-        <div className="container mx-auto px-6">
-          <p className="section-label mb-4">ABOUT AGENCY</p>
+      <section className="relative py-24 overflow-hidden">
+        {/* Background Video */}
+        <video 
+          src="/video.mp4" 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        {/* Light Overlay for Readability */}
+        <div className="absolute inset-0 bg-white/90 z-10" />
+
+        <div className="container relative z-20 mx-auto px-6">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ABOUT AGENCY</p>
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             <div className="lg:w-1/2">
-              <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight">
-                Empowering your digital growth, <span className="text-gradient-orange">one click at a time</span>
+              <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#0a0a0a]">
+                Empowering your digital growth, <span className="text-[#ff5a1f]">one click at a time</span>
               </h2>
-              <p className="text-muted-foreground mt-6 leading-relaxed">
+              <p className="text-gray-600 mt-6 leading-relaxed text-lg">
                 Founded in 2021 in Mumbai with 8+ years of industry expertise, we've collaborated with 10+ international brands and partnered with 5+ associate digital marketing agencies across India.
               </p>
-              <Link to="/contact" className="mt-8 inline-flex px-6 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
+              <Link to="/contact" className="mt-8 inline-flex px-8 py-4 bg-transparent border-2 border-[#ff5a1f] text-[#ff5a1f] font-semibold rounded-full hover:bg-[#ff5a1f] hover:text-white transition-colors">
                 Contact Us
               </Link>
             </div>
-            <div className="lg:w-1/2 space-y-8">
+            <div className="lg:w-1/2 space-y-6">
               {[
                 { title: "Your Success is Our Mission", desc: "We measure our value by the growth of our clients. With a focus on sharp results and a dedication to quality." },
                 { title: "Creators Of Digital Excellence", desc: "At the core of our agency is a commitment to excellence and creativity in crafting digital solutions." },
                 { title: "Helping Brands Thrive Online", desc: "Our purpose is simple: to help brands succeed in the digital age with strong client relationships." },
               ].map((item, i) => (
-                <div key={i} className="p-6 rounded-xl bg-card border border-border hover:border-primary/30 transition-colors">
-                  <h3 className="font-display font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{item.desc}</p>
+                <div key={i} className="p-8 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#ff5a1f]/40 hover:shadow-lg transition-all duration-300">
+                  <h3 className="font-display font-semibold text-xl mb-3 text-[#0a0a0a]">{item.title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>

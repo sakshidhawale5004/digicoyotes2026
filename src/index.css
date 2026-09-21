@@ -401,8 +401,8 @@ input, textarea, [contenteditable="true"] {
 
 .fiery-text {
   font-family: 'Dancing Script', cursive;
-  color: #ffeb3b;
-  -webkit-text-stroke: 1.5px #e60000;
+  color: #ff7b00;
+  -webkit-text-stroke: 1.5px #cc0000;
   text-shadow: 
     0px 0px 10px rgba(230, 0, 0, 0.8),
     0px 0px 20px rgba(255, 90, 31, 0.8),

@@ -373,3 +373,25 @@ input, textarea, [contenteditable="true"] {
   background-color: hsl(24 95% 53% / 0.25);
 }
 
+
+@keyframes ripple-wipe {
+  0% {
+    clip-path: circle(0% at 50% 50%);
+  }
+  100% {
+    clip-path: circle(150% at 50% 50%);
+  }
+}
+
+.animate-ripple-wipe {
+  animation: ripple-wipe 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.ripple-wipe-hover {
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.group:hover .ripple-wipe-hover,
+.ripple-wipe-hover:hover {
+  clip-path: circle(150% at 50% 50%);
+}

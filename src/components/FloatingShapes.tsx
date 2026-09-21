@@ -3,40 +3,48 @@ import { useRef, useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 import { useTheme } from "next-themes";
 
-const BlackHoleCore = ({ isDark }: { isDark: boolean }) => {
-  const coreRef = useRef<THREE.Mesh>(null);
-  const diskRef = useRef<THREE.Group>(null);
+const DigitalCore = () => {
+  const groupRef = useRef<THREE.Group>(null);
+  const wireframeRef = useRef<THREE.Mesh>(null);
   const particlesRef = useRef<THREE.Points>(null);
 
   useFrame((state, dt) => {
-    if (coreRef.current) {
-      coreRef.current.rotation.y += dt * 0.5;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += dt * 0.15;
+      groupRef.current.rotation.x += dt * 0.1;
     }
-    if (diskRef.current) {
-      diskRef.current.rotation.z -= dt * 0.2;
+    if (wireframeRef.current) {
+      wireframeRef.current.rotation.y -= dt * 0.2;
+      wireframeRef.current.rotation.x -= dt * 0.15;
     }
     if (particlesRef.current) {
-      particlesRef.current.rotation.y += dt * 0.1;
+      particlesRef.current.rotation.y += dt * 0.05;
+      // Pulse effect
+      const scale = 1 + Math.sin(state.clock.elapsedTime * 2) * 0.05;
+      particlesRef.current.scale.set(scale, scale, scale);
     }
   });
 
-  const particleCount = 2000;
+  const particleCount = 1000;
   const particles = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
     const color = new THREE.Color();
 
     for (let i = 0; i < particleCount; i++) {
-      const radius = 2 + Math.random() * 4;
-      const theta = Math.random() * Math.PI * 2;
-      const y = (Math.random() - 0.5) * 0.5 * (6 - radius); // Thicker in the middle
-      
-      positions[i * 3] = Math.cos(theta) * radius;
-      positions[i * 3 + 1] = y;
-      positions[i * 3 + 2] = Math.sin(theta) * radius;
+      // Create a spherical particle network
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const radius = 3.5 + Math.random() * 1.5;
+
+      positions[i * 3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta);
+      positions[i * 3 + 2] = radius * Math.cos(phi);
 
       const mix = Math.random();
-      color.setHSL(0.08 + mix * 0.05, 1, 0.5 + mix * 0.5); // Orange to yellow
+      color.setHSL(0.08 + mix * 0.05, 1, 0.6 + mix * 0.4); // Orange to yellow highlights
       
       colors[i * 3] = color.r;
       colors[i * 3 + 1] = color.g;
@@ -46,82 +54,49 @@ const BlackHoleCore = ({ isDark }: { isDark: boolean }) => {
   }, []);
 
   return (
-    <group rotation={[Math.PI / 8, 0, 0]}>
-      {/* Event Horizon (Black Core) */}
-      <mesh ref={coreRef}>
-        <sphereGeometry args={[1.5, 64, 64]} />
-        <meshBasicMaterial color="#000000" />
+    <group ref={groupRef}>
+      {/* Inner Solid Core */}
+      <mesh>
+        <icosahedronGeometry args={[1.5, 2]} />
+        <meshStandardMaterial 
+          color="#111111" 
+          metalness={0.9} 
+          roughness={0.1}
+          emissive="#220000"
+        />
       </mesh>
 
-      {/* Glowing Accretion Disk */}
-      <group ref={diskRef} rotation={[Math.PI / 2, 0, 0]}>
-        {/* Inner bright ring */}
-        <mesh>
-          <ringGeometry args={[1.6, 2.8, 64]} />
-          <meshBasicMaterial 
-            color="#ff5a1f" 
-            transparent 
-            opacity={0.8} 
-            side={THREE.DoubleSide}
-            blending={THREE.AdditiveBlending}
-            depthWrite={false}
-          />
-        </mesh>
-        
-        {/* Outer fade ring */}
-        <mesh>
-          <ringGeometry args={[2.8, 5, 64]} />
-          <meshBasicMaterial 
-            color="#ff8a3d" 
-            transparent 
-            opacity={0.3} 
-            side={THREE.DoubleSide}
-            blending={THREE.AdditiveBlending}
-            depthWrite={false}
-          />
-        </mesh>
+      {/* Outer Wireframe */}
+      <mesh ref={wireframeRef}>
+        <icosahedronGeometry args={[2.2, 1]} />
+        <meshBasicMaterial 
+          color="#ff5a1f" 
+          wireframe 
+          transparent 
+          opacity={0.3} 
+          blending={THREE.AdditiveBlending}
+        />
+      </mesh>
 
-        {/* Outer aura */}
-        <mesh>
-          <ringGeometry args={[5, 8, 64]} />
-          <meshBasicMaterial 
-            color="#ff3300" 
-            transparent 
-            opacity={0.1} 
-            side={THREE.DoubleSide}
-            blending={THREE.AdditiveBlending}
-            depthWrite={false}
-          />
-        </mesh>
-      </group>
-
-      {/* Orbiting Particles */}
+      {/* Surrounding Particles */}
       <points ref={particlesRef}>
         <bufferGeometry>
           <bufferAttribute attach="attributes-position" args={[particles.positions, 3]} />
           <bufferAttribute attach="attributes-color" args={[particles.colors, 3]} />
         </bufferGeometry>
         <pointsMaterial 
-          size={0.05} 
+          size={0.06} 
           vertexColors 
           transparent 
-          opacity={0.8}
+          opacity={0.7}
           blending={THREE.AdditiveBlending}
           depthWrite={false}
         />
       </points>
 
-      {/* Glow behind the core */}
-      <mesh position={[0, 0, -1]}>
-        <planeGeometry args={[12, 12]} />
-        <meshBasicMaterial 
-          color="#ff5a1f" 
-          transparent 
-          opacity={0.15} 
-          blending={THREE.AdditiveBlending}
-          depthWrite={false}
-        />
-      </mesh>
+      {/* Lighting for the core */}
+      <pointLight position={[5, 5, 5]} intensity={2} color="#ffffff" />
+      <pointLight position={[-5, -5, -5]} intensity={1} color="#ff5a1f" />
     </group>
   );
 };
@@ -129,8 +104,6 @@ const BlackHoleCore = ({ isDark }: { isDark: boolean }) => {
 const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string }) => {
   const [enabled, setEnabled] = useState(false);
   const [visible, setVisible] = useState(true);
-  const { theme } = useTheme();
-  const isDark = theme !== "light";
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 768px)");
@@ -153,12 +126,12 @@ const FloatingShapes = ({ className = "absolute inset-0" }: { className?: string
   return (
     <div className={`${className} pointer-events-none z-0 mix-blend-screen`}>
       <Canvas
-        camera={{ position: [0, 1, 10], fov: 45 }}
+        camera={{ position: [0, 0, 8], fov: 45 }}
         dpr={[1, 1.5]}
         gl={{ antialias: true, alpha: true, powerPreference: "low-power" }}
         frameloop={visible ? "always" : "never"}
       >
-        <BlackHoleCore isDark={isDark} />
+        <DigitalCore />
       </Canvas>
     </div>
   );

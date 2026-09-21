@@ -366,9 +366,16 @@
 }
 .animate-holo-float { animation: holo-float 6s ease-in-out infinite; }
 
-/* Custom cursor: restore native text cursor on inputs and selection */
-input, textarea, [contenteditable="true"] {
-  cursor: text !important;
+/* Custom cursor — hide native cursor on desktop, keep it on mobile/touch */
+@media (min-width: 768px) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+  /* Restore text caret for editable fields */
+  input, textarea, [contenteditable="true"] {
+    cursor: text !important;
+    caret-color: hsl(var(--primary));
+  }
 }
 
 ::selection {

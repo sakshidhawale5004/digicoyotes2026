@@ -266,16 +266,14 @@ const Index = () => {
               return (
                 <ScrollReveal key={i} delay={i * 0.1}>
                   <Link to={`/services/${slug}`} className="group flex flex-col gap-5 cursor-pointer h-full">
-                    <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100">
-                      <motion.img 
+                    <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100 group-hover:shadow-2xl transition-all duration-500">
+                      <img 
                         src={item.image} 
                         alt={item.title}
-                        initial={{ clipPath: "circle(0% at 50% 50%)", scale: 1.1 }}
-                        whileInView={{ clipPath: "circle(150% at 50% 50%)", scale: 1 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }} 
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
+                      {/* Ripple Wipe Overlay on Hover */}
+                      <div className="absolute inset-0 bg-[#ff5a1f]/20 mix-blend-overlay ripple-wipe-hover pointer-events-none" />
                       <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md text-[#0a0a0a] text-xs font-semibold px-4 py-2 rounded-full border border-gray-200 shadow-sm">
                         {item.category}
                       </div>

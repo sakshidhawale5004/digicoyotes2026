@@ -210,16 +210,14 @@ const Index = () => {
               All Services
             </Link>
           </div>
-          <div className="grid md:grid-cols-3 gap-6" style={{ perspective: 1200 }}>
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <TiltCard className="group h-full rounded-2xl" radar>
-                  <div className="border-holo relative p-8 rounded-2xl bg-surface-dark text-surface-dark-foreground transition-all duration-300 cursor-pointer h-full neon-glow group-hover:bg-gradient-orange scanlines overflow-hidden">
-                    <s.icon className="w-10 h-10 text-primary group-hover:text-primary-foreground mb-6 drop-shadow-[0_0_12px_hsl(24,95%,53%,0.6)]" />
-                    <h3 className="font-display font-semibold text-xl mb-3">{s.title}</h3>
-                    <p className="text-surface-dark-foreground/80 group-hover:text-primary-foreground/90 text-sm leading-relaxed">{s.desc}</p>
-                  </div>
-                </TiltCard>
+                <div className="p-10 rounded-2xl bg-[#0a0a0a] text-white transition-all duration-300 cursor-pointer h-full group hover:-translate-y-2">
+                  <s.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
+                  <h3 className="font-display font-semibold text-2xl mb-4">{s.title}</h3>
+                  <p className="text-white/70 text-base leading-relaxed">{s.desc}</p>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -227,21 +225,19 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-24 bg-surface-dark">
+      <section className="py-24 bg-[#0a0a0a] text-white">
         <div className="container mx-auto px-6">
-          <p className="section-label mb-4">EXPERTISE</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-surface-dark-foreground mb-16">
-            Expertise that drives <span className="text-gradient-orange">digital success</span>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">EXPERTISE</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">
+            Expertise that drives <span className="text-[#ff5a1f]">digital success</span>
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8" style={{ perspective: 1200 }}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <TiltCard className="group h-full" intensity={12}>
-                  <div className="border-holo rounded-2xl p-6 text-center h-full bg-surface-dark/40 backdrop-blur-sm neon-glow animate-holo-float" style={{ animationDelay: `${i * 0.4}s` }}>
-                    <p className="font-display text-4xl md:text-5xl font-extrabold text-extrude-dark mb-3 leading-none">{s.value}</p>
-                    <p className="text-surface-dark-foreground/85 text-sm">{s.label}</p>
-                  </div>
-                </TiltCard>
+                <div className="p-6 border-l-2 border-[#ff5a1f]/30 pl-8">
+                  <p className="font-display text-5xl md:text-6xl font-extrabold text-white mb-4 leading-none">{s.value}</p>
+                  <p className="text-white/70 text-base">{s.label}</p>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -249,23 +245,21 @@ const Index = () => {
       </section>
 
       {/* Why Choose */}
-      <section className="py-24 section-light">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <p className="section-label mb-4">WHY CHOOSE</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">Why Run With <span className="text-gradient-orange">The Digital Coyotes?</span></h2>
-          <p className="text-muted-foreground max-w-2xl mb-12">Our dedicated team is committed to understanding your unique needs, ensuring innovative strategies that drive results.</p>
-          <div className="grid md:grid-cols-3 gap-6" style={{ perspective: 1200 }}>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">WHY CHOOSE</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">Why Run With <span className="text-[#ff5a1f]">The Digital Coyotes?</span></h2>
+          <p className="text-gray-600 max-w-2xl mb-16 text-lg">Our dedicated team is committed to understanding your unique needs, ensuring innovative strategies that drive results.</p>
+          <div className="grid md:grid-cols-3 gap-12">
             {whyChoose.map((w, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <TiltCard className="group h-full" intensity={10}>
-                  <div className="border-holo p-8 rounded-2xl bg-card transition-all duration-300 h-full shadow-[0_10px_40px_-15px_rgba(0,0,0,0.15)] group-hover:shadow-[0_25px_60px_-15px_hsl(24,95%,53%,0.35)]">
-                    <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
-                      <w.icon className="w-7 h-7 text-primary" />
-                    </div>
-                    <h3 className="font-display font-semibold text-lg mb-3">{w.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{w.desc}</p>
+                <div className="h-full">
+                  <div className="w-16 h-16 bg-gray-50 border border-gray-100 flex items-center justify-center mb-8">
+                    <w.icon className="w-8 h-8 text-[#ff5a1f]" />
                   </div>
-                </TiltCard>
+                  <h3 className="font-display font-semibold text-2xl mb-4">{w.title}</h3>
+                  <p className="text-gray-600 text-base leading-relaxed">{w.desc}</p>
+                </div>
               </ScrollReveal>
             ))}
           </div>
@@ -290,16 +284,16 @@ const Index = () => {
       </section>
 
       {/* Features */}
-      <section className="py-24 bg-background">
+      <section className="py-24 bg-[#0a0a0a] text-white">
         <div className="container mx-auto px-6">
-          <p className="section-label mb-4">FEATURES</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-12">Innovative features for your <span className="text-gradient-orange">digital success</span></h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">FEATURES</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">Innovative features for your <span className="text-[#ff5a1f]">digital success</span></h2>
+          <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
-              <div key={i} className="border-holo p-8 rounded-2xl bg-surface-dark text-surface-dark-foreground neon-glow scanlines overflow-hidden relative">
-                <f.icon className="w-10 h-10 text-primary mb-6" />
-                <h3 className="font-display font-semibold text-xl mb-3">{f.title}</h3>
-                <p className="text-surface-dark-foreground/80 text-sm leading-relaxed">{f.desc}</p>
+              <div key={i} className="p-10 border border-white/10 hover:border-[#ff5a1f]/50 transition-colors duration-300">
+                <f.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
+                <h3 className="font-display font-semibold text-3xl mb-4">{f.title}</h3>
+                <p className="text-white/70 text-lg leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -351,23 +345,21 @@ const Index = () => {
       </section>
 
       {/* Ads Results */}
-      <section className="py-24 bg-surface-dark">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <p className="section-label mb-4">ADS RESULTS</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-surface-dark-foreground mb-4">
-            Real campaign <span className="text-gradient-orange">performance metrics</span>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ADS RESULTS</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+            Real campaign <span className="text-[#ff5a1f]">performance metrics</span>
           </h2>
-          <p className="text-surface-dark-foreground/60 max-w-2xl mb-12">Data-driven results from our recent ad campaigns across social and search platforms.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6" style={{ perspective: 1200 }}>
+          <p className="text-gray-600 max-w-2xl mb-16 text-lg">Data-driven results from our recent ad campaigns across social and search platforms.</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {adsResults.map((a, i) => (
               <ScrollReveal key={i} delay={i * 0.07}>
-                <TiltCard className="group h-full" intensity={16}>
-                  <div className="border-holo p-6 rounded-2xl text-center h-full bg-surface-dark/50 backdrop-blur-sm neon-glow scanlines overflow-hidden">
-                    <p className="font-display text-3xl md:text-4xl font-extrabold text-extrude-dark mb-2 leading-none">{a.metric}</p>
-                    <p className="text-surface-dark-foreground font-semibold text-sm mb-1">{a.label}</p>
-                    <p className="text-surface-dark-foreground/50 text-xs">{a.detail}</p>
-                  </div>
-                </TiltCard>
+                <div className="text-left h-full border-t-2 border-[#ff5a1f]/30 pt-6">
+                  <p className="font-display text-4xl md:text-5xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{a.metric}</p>
+                  <p className="text-gray-800 font-semibold text-base mb-2">{a.label}</p>
+                  <p className="text-gray-500 text-sm">{a.detail}</p>
+                </div>
               </ScrollReveal>
             ))}
           </div>

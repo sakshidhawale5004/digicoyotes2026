@@ -11,6 +11,22 @@ const marqueeItems = [
   "Data-Driven Strategy", "Social Media Pack Management", "Lead Generation", "Digital Territory Expansion"
 ];
 
+import img1 from "@/assets/portfolio/Dynamic E-Commerce Platform.webp";
+import img2 from "@/assets/portfolio/Innovative design identity.webp";
+import img3 from "@/assets/portfolio/Dynamic Digital Campaign.webp";
+import img4 from "@/assets/portfolio/Impactful Content Creation.webp";
+import img5 from "@/assets/portfolio/Visionary Growth Strategy.webp";
+import img6 from "@/assets/portfolio/Interactive Website Redesign.webp";
+
+const portfolioItems = [
+  { title: "Dynamic E-Commerce Platform", category: "Branding & Identity", image: img1 },
+  { title: "Innovative Identity Design", category: "Digital Marketing", image: img2 },
+  { title: "Dynamic Digital Campaign", category: "Branding & Identity", image: img3 },
+  { title: "Impactful Content Creation", category: "Branding & Identity", image: img4 },
+  { title: "Visionary Growth Strategy", category: "Web Design", image: img5 },
+  { title: "Interactive Website Redesign", category: "Branding & Identity", image: img6 },
+];
+
 const services = [
   { title: "Alpha Branding & Identity", desc: "We build a visual DNA that demands attention and builds fierce customer loyalty.", icon: Star },
   { title: "Digital Hunting (Marketing)", desc: "Strategic SEO and PPC campaigns designed to track down your ideal audience.", icon: Target },
@@ -138,6 +154,25 @@ const Index = () => {
         </div>
       </div>
 
+      {/* Video Section */}
+      <section className="py-24 bg-[#222022]">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-16 tracking-tight leading-tight">
+            Be chosen before<br />the search begins
+          </h2>
+          <div className="max-w-5xl mx-auto rounded-md overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <video 
+              src="/video.mp4" 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* About Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
@@ -225,9 +260,45 @@ const Index = () => {
           </div>
         </div>
       </section>
+      {/* Portfolio Section */}
+      <section className="py-24 bg-surface-dark">
+        <div className="container mx-auto px-6">
+          <p className="section-label mb-4 text-center">OUR PORTFOLIO</p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold mb-12 text-center text-surface-dark-foreground">
+            Our recent <span className="text-gradient-orange">projects</span>
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: 1200 }}>
+            {portfolioItems.map((item, i) => (
+              <ScrollReveal key={i} delay={i * 0.1}>
+                <TiltCard className="group flex flex-col gap-5 cursor-pointer h-full" intensity={8}>
+                  <div className="relative overflow-hidden rounded-3xl aspect-[4/3] border-holo bg-card neon-glow">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-xs font-semibold px-4 py-2 rounded-full border border-white/10 shadow-lg">
+                      {item.category}
+                    </div>
+                    {/* Hover Circle Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="w-16 h-16 rounded-full border border-white flex items-center justify-center backdrop-blur-sm bg-black/20">
+                        <ArrowUpRight className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="font-display font-semibold text-xl text-center text-surface-dark-foreground group-hover:text-primary transition-colors">
+                    {item.title}
+                  </h3>
+                </TiltCard>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Stats */}
-      <section className="py-24 bg-surface-dark">
+      <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <p className="section-label mb-4">EXPERTISE</p>
           <h2 className="font-display text-3xl md:text-4xl font-bold text-surface-dark-foreground mb-16">

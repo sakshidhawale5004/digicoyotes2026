@@ -4,6 +4,7 @@ import ScrollReveal from "@/components/ScrollReveal";
 import TiltCard from "@/components/TiltCard";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Star, Shield, BarChart3, Users, Zap, Target, TrendingUp, Headphones, Code, Palette, Globe, Megaphone } from "lucide-react";
+import { motion } from "framer-motion";
 import heroHome from "@/assets/hero-home.jpg";
 
 const marqueeItems = [

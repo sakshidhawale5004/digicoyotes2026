@@ -154,24 +154,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Video Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-[#0a0a0a] mb-16 tracking-tight leading-tight">
-            Be chosen before<br />the search begins
-          </h2>
-          <div className="max-w-5xl mx-auto rounded-md overflow-hidden shadow-2xl">
-            <video 
-              src="/video.mp4" 
-              autoPlay 
-              loop 
-              muted 
-              playsInline
-              className="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-      </section>
 
       {/* About Section */}
       <section className="relative py-24 overflow-hidden">

@@ -2,7 +2,6 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import HeroSlider from "@/components/HeroSlider";
 import { Calendar, Clock, ArrowRight, Tag } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const blogs = [
   {
@@ -143,11 +142,11 @@ const Insights = () => {
       <HeroSlider
         label="INSIGHTS & BLOG"
         title="Ideas That Move"
-        highlight="Brands Forward"
-        subtitle="Stay ahead of the curve with expert perspectives on digital marketing, design, AI, and the future of brand building."
-        images={[
-          "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1600&q=80&auto=format&fit=crop",
-        ]}
+        rotatingWords={["Brands Forward", "Markets Forward", "Culture Forward"]}
+        description="Stay ahead of the curve with expert perspectives on digital marketing, design, AI, and the future of brand building."
+        ctaText="Explore Articles"
+        ctaLink="/insights"
+        backgroundImage=""
       />
 
       {/* Filter Tabs */}

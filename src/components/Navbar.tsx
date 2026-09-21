@@ -150,7 +150,7 @@ const Navbar = () => {
 
 
         {/* CTA */}
-        <Link to="/contact" className="hidden md:inline-flex px-6 py-2.5 bg-gradient-orange text-white text-sm font-semibold rounded-full hover:opacity-90 transition-opacity shadow-lg shadow-orange-500/25">
+        <Link to="/contact" className="hidden md:inline-flex px-6 py-2.5 bg-[#0a0a0a] text-white text-sm font-semibold rounded-full hover:bg-gray-800 transition-colors shadow-lg">
           Get In Touch
         </Link>
 

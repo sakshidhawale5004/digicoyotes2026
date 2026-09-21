@@ -197,7 +197,7 @@ const Index = () => {
               <p className="text-gray-600 mt-6 leading-relaxed text-lg">
                 Founded in 2021 in Mumbai with 8+ years of industry expertise, we've collaborated with 10+ international brands and partnered with 5+ associate digital marketing agencies across India.
               </p>
-              <Link to="/contact" className="mt-8 inline-flex px-8 py-4 bg-transparent border-2 border-[#ff5a1f] text-[#ff5a1f] font-semibold rounded-full hover:bg-[#ff5a1f] hover:text-white transition-colors">
+              <Link to="/contact" className="mt-8 inline-flex px-8 py-4 bg-transparent border-2 border-[#0a0a0a] text-[#0a0a0a] font-semibold rounded-full hover:bg-[#0a0a0a] hover:text-white transition-colors">
                 Contact Us
               </Link>
             </div>

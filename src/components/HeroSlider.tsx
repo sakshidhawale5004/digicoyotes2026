@@ -37,21 +37,21 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
       className="relative min-h-[100vh] flex items-center overflow-hidden bg-[#0a0a0a] text-white"
     >
       {/* 3D Black Hole scene */}
-      <FloatingShapes className="absolute inset-0 lg:left-[40%] lg:w-[60%]" />
+      <FloatingShapes className="absolute inset-0 lg:left-1/2 lg:w-1/2" />
 
       {/* Content */}
       <motion.div
         className="container mx-auto px-6 relative z-10 text-center lg:text-left lg:flex lg:items-center pt-20"
         style={{ y: contentY }}
       >
-        <div className="w-full mx-auto lg:mx-0 lg:max-w-2xl xl:max-w-[800px]">
+        <div className="w-full mx-auto lg:mx-0 lg:w-1/2 lg:pr-12">
           <motion.div
             className="inline-flex items-center gap-2 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="w-2 h-2 rounded-full bg-[#ff5a1f] animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-white/80 animate-pulse" />
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/70">
               {label}
             </span>
@@ -69,7 +69,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
               <AnimatePresence mode="wait">
                 <motion.span
                   key={rotatingWords[currentWord]}
-                  className="inline-block text-[#ff5a1f]"
+                  className="inline-block text-white"
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -15 }}
@@ -96,7 +96,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.55 }}
           >
-            <Link to={ctaLink} className="inline-flex items-center gap-2 bg-[#ff5a1f] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-[#0a0a0a] transition-colors duration-300">
+            <Link to={ctaLink} className="inline-flex items-center gap-2 bg-white text-[#0a0a0a] px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-200 transition-colors duration-300">
               {ctaText} <ArrowRight className="w-5 h-5" />
             </Link>
             <Link

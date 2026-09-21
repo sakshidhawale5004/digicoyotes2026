@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600;700&display=swap');
 
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -394,4 +395,20 @@ input, textarea, [contenteditable="true"] {
 .group:hover .ripple-wipe-hover,
 .ripple-wipe-hover:hover {
   clip-path: circle(150% at 50% 50%);
+}
+
+
+
+.fiery-text {
+  font-family: 'Dancing Script', cursive;
+  color: #ffeb3b;
+  -webkit-text-stroke: 1.5px #e60000;
+  text-shadow: 
+    0px 0px 10px rgba(230, 0, 0, 0.8),
+    0px 0px 20px rgba(255, 90, 31, 0.8),
+    3px 3px 5px rgba(0, 0, 0, 0.6);
+  padding: 0 0.1em;
+  transform: rotate(-2deg);
+  display: inline-block;
+  line-height: 1.2;
 }

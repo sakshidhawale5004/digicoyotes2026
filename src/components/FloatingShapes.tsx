@@ -55,17 +55,6 @@ const DigitalCore = () => {
 
   return (
     <group ref={groupRef}>
-      {/* Inner Solid Core */}
-      <mesh>
-        <icosahedronGeometry args={[1.5, 2]} />
-        <meshStandardMaterial 
-          color="#111111" 
-          metalness={0.9} 
-          roughness={0.1}
-          emissive="#220000"
-        />
-      </mesh>
-
       {/* Outer Wireframe */}
       <mesh ref={wireframeRef}>
         <icosahedronGeometry args={[2.2, 1]} />

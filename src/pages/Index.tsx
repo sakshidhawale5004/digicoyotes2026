@@ -259,17 +259,17 @@ const Index = () => {
         </div>
       </section>
       {/* Portfolio Section */}
-      <section className="py-24 bg-surface-dark">
+      <section className="py-24 bg-[#0a0a0a] text-white">
         <div className="container mx-auto px-6">
-          <p className="section-label mb-4 text-center">OUR PORTFOLIO</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-12 text-center text-surface-dark-foreground">
-            Our recent <span className="text-gradient-orange">projects</span>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4 text-center">OUR PORTFOLIO</p>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16 text-center">
+            Our recent <span className="text-[#ff5a1f]">projects</span>
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: 1200 }}>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {portfolioItems.map((item, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <TiltCard className="group flex flex-col gap-5 cursor-pointer h-full" intensity={8}>
-                  <div className="relative overflow-hidden rounded-3xl aspect-[4/3] border-holo bg-card neon-glow">
+                <div className="group flex flex-col gap-5 cursor-pointer h-full">
+                  <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-black">
                     <img 
                       src={item.image} 
                       alt={item.title} 
@@ -285,10 +285,10 @@ const Index = () => {
                       </div>
                     </div>
                   </div>
-                  <h3 className="font-display font-semibold text-xl text-center text-surface-dark-foreground group-hover:text-primary transition-colors">
+                  <h3 className="font-display font-semibold text-2xl text-center text-white group-hover:text-[#ff5a1f] transition-colors">
                     {item.title}
                   </h3>
-                </TiltCard>
+                </div>
               </ScrollReveal>
             ))}
           </div>

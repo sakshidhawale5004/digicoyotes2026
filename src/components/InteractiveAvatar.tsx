@@ -116,7 +116,7 @@ const InteractiveAvatar = () => {
         {messages.length > 0 && (
           <div className="flex flex-col gap-2 max-h-[120px] overflow-y-auto mb-2 no-scrollbar">
             {messages.map((msg, idx) => (
-              <div key={idx} className={	ext-sm px-4 py-2 rounded-2xl max-w-[85%] }>
+              <div key={idx} className={`text-sm px-4 py-2 rounded-2xl max-w-[85%] ${msg.role === 'user' ? 'bg-gray-800 text-white self-end rounded-tr-sm' : 'bg-[#1a1a1a] text-gray-200 self-start rounded-tl-sm'}`}>
                 {msg.text}
               </div>
             ))}

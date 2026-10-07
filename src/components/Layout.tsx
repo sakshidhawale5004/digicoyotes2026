@@ -1,6 +1,5 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import CustomCursor from "./CustomCursor";
 import { MessageCircle, ArrowUp } from "lucide-react";
 import ChatbotWidget from "./ChatbotWidget";
 import InteractiveAvatar from "./InteractiveAvatar";
@@ -17,7 +16,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <CustomCursor />
       <Navbar />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />

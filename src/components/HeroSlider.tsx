@@ -2,7 +2,6 @@ import { useState, useEffect, forwardRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import FloatingShapes from "./FloatingShapes";
 
 interface HeroSliderProps {
   label: string;
@@ -47,8 +46,6 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
         </div>
       )}
 
-      {/* 3D Scene */}
-      <FloatingShapes className="absolute inset-0 lg:left-1/2 lg:w-1/2 opacity-80 z-0" />
 
       {/* Content */}
       <motion.div

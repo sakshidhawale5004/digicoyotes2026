@@ -35,10 +35,9 @@ const services = [
 ];
 
 const stats = [
-  { value: "400+", label: "Websites built with precision and creativity" },
-  { value: "60+", label: "Unique brand designs crafted to inspire" },
-  { value: "50+", label: "Social media accounts managed and amplified" },
-  { value: "10+", label: "International brands served worldwide" },
+  { value: "200", label: "Clients Served" },
+  { value: "10", label: "M+ Ad Spend Managed" },
+  { value: "5", label: "X Average ROI" },
 ];
 
 const whyChoose = [
@@ -295,18 +294,14 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-24 bg-gray-50 text-[#0a0a0a]">
+      <section className="py-32 bg-[#0a0a0a] text-white border-y border-gray-900">
         <div className="container mx-auto px-6">
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">EXPERTISE</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-16">
-            Expertise that drives <span className="text-[#ff5a1f]">digital success</span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-5xl mx-auto">
             {stats.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="p-6 border-l-2 border-[#ff5a1f]/30 pl-8">
-                  <p className="font-display text-6xl md:text-7xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{s.value}</p>
-                  <p className="text-gray-600 text-lg">{s.label}</p>
+                <div className="text-center md:text-left">
+                  <p className="font-display text-7xl md:text-[5.5rem] font-extrabold text-white mb-6 leading-none tracking-tight">{s.value}</p>
+                  <p className="text-[#3b82f6] text-2xl md:text-3xl font-medium">{s.label}</p>
                 </div>
               </ScrollReveal>
             ))}

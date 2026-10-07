@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import CustomCursor from "./CustomCursor";
 import { MessageCircle, ArrowUp } from "lucide-react";
 import ChatbotWidget from "./ChatbotWidget";
+import InteractiveAvatar from "./InteractiveAvatar";
 import { useState, useEffect } from "react";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -20,6 +21,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Navbar />
       <main className="flex-1 pt-20">{children}</main>
       <Footer />
+      <InteractiveAvatar />
       <ChatbotWidget />
       <a
         href="https://wa.me/919653374574"

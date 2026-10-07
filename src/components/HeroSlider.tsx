@@ -41,8 +41,8 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
 
       {/* Background Image */}
       {backgroundImage && (
-        <div className="absolute inset-0 flex items-center justify-end lg:justify-end p-6 lg:p-20 z-0 pointer-events-none">
-          <img src={backgroundImage} alt="Hero Background" className="w-full lg:w-1/2 h-auto object-contain max-h-full" />
+        <div className="absolute inset-0 flex items-center justify-center lg:justify-end p-6 lg:p-20 z-0 pointer-events-none overflow-hidden">
+          <img src={backgroundImage} alt="Hero Background" className="w-full lg:w-1/2 h-auto max-h-[80vh] object-contain drop-shadow-2xl" />
         </div>
       )}
 

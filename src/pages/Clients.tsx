@@ -3,64 +3,31 @@ import HeroSlider from "@/components/HeroSlider";
 import { Link } from "react-router-dom";
 import heroHome from "@/assets/hero-home.jpg";
 
-import xenovia from "@/assets/clients/xenovia-capital.png";
-import shivaji from "@/assets/clients/shivaji-saraf.png";
-import hexaTp from "@/assets/clients/hexa-tp.png";
-import hexaGp from "@/assets/clients/hexa-gp.png";
-import ssdf from "@/assets/clients/ssdf.png";
-import neesham from "@/assets/clients/neesham-grande.png";
-import crust from "@/assets/clients/crust.png";
-import rajkamal from "@/assets/clients/rajkamal.png";
-import todis from "@/assets/clients/todis.png";
-import territory29 from "@/assets/clients/territory29.png";
-import moskman from "@/assets/clients/moskman.png";
-import farmersTiffin from "@/assets/clients/farmers-tiffin.png";
-import itude from "@/assets/clients/itude.png";
-import orro from "@/assets/clients/orro.png";
-import culinary from "@/assets/clients/culinary-creations.png";
-import smix from "@/assets/clients/smix.png";
-import nagraj from "@/assets/clients/nagraj.png";
-import sudhir from "@/assets/clients/sudhir-shukla.png";
-import balaji from "@/assets/clients/balaji.png";
-import lelog from "@/assets/clients/lelog.png";
-import risaNx from "@/assets/clients/risa-nx.png";
-import ramInstitute from "@/assets/clients/ram-institute.png";
-import joyMovers from "@/assets/clients/joy-movers.png";
-import vinshar from "@/assets/clients/vinshar.png";
-import trillium from "@/assets/clients/trillium.png";
-import shProductions from "@/assets/clients/sh-productions.png";
-import risaRinkesh from "@/assets/clients/risa-rinkesh.png";
-import sarVenture from "@/assets/clients/sar-venture.png";
 
 const clients = [
-  { name: "Xenovia Capital", logo: xenovia, category: "Finance" },
-  { name: "Shivaji Aappa Saraf & Sons", logo: shivaji, category: "Jewelry" },
-  { name: "Hexa TP", logo: hexaTp, category: "Technology" },
-  { name: "Hexa GP", logo: hexaGp, category: "Technology" },
-  { name: "SSDF", logo: ssdf, category: "Foundation" },
-  { name: "Neesham Grande", logo: neesham, category: "Real Estate" },
-  { name: "CRUST", logo: crust, category: "Electronics" },
-  { name: "Rajkamal", logo: rajkamal, category: "Lifestyle" },
-  { name: "Todi's Mouthfreshners", logo: todis, category: "Food & Beverage" },
-  { name: "Territory 29 Foods", logo: territory29, category: "Food & Beverage" },
-  { name: "MoskMan India", logo: moskman, category: "Fashion" },
-  { name: "Farmer's Tiffin", logo: farmersTiffin, category: "Food & Beverage" },
-  { name: "iTUDE", logo: itude, category: "Technology" },
-  { name: "ORRO", logo: orro, category: "Luxury" },
-  { name: "Culinary Creations", logo: culinary, category: "Food & Beverage" },
-  { name: "SMIX India", logo: smix, category: "Brand" },
-  { name: "Nagraj Print & Pack", logo: nagraj, category: "Printing" },
-  { name: "Sudhir Shukla Insurance", logo: sudhir, category: "Finance" },
-  { name: "Balaji Creatives", logo: balaji, category: "Creative" },
-  { name: "Lelog", logo: lelog, category: "Brand" },
-  { name: "RISA NX", logo: risaNx, category: "Fashion" },
-  { name: "Ram Institute", logo: ramInstitute, category: "Education" },
-  { name: "Joy Movers", logo: joyMovers, category: "Logistics" },
-  { name: "Vinshar Integrated Services", logo: vinshar, category: "Services" },
-  { name: "Trillium Real Estate", logo: trillium, category: "Real Estate" },
-  { name: "SH Productions", logo: shProductions, category: "Media" },
-  { name: "RISA by Rinkesh & Sanchi", logo: risaRinkesh, category: "Fashion" },
-  { name: "SAR Venture Pvt Ltd", logo: sarVenture, category: "Finance" },
+  { name: "CRUST", logo: "/THE DIGITAL COYOTES/crust.png", category: "Electronics" },
+  { name: "Rajkamal", logo: "/THE DIGITAL COYOTES/rajkamal.png", category: "Lifestyle" },
+  { name: "iTUDE", logo: "/THE DIGITAL COYOTES/itude.png", category: "Technology" },
+  { name: "ORRO", logo: "/THE DIGITAL COYOTES/orro.png", category: "Luxury" },
+  { name: "Culinary Creations", logo: "/THE DIGITAL COYOTES/culinary creations.png", category: "Food & Beverage" },
+  { name: "RISA NX", logo: "/THE DIGITAL COYOTES/risenx.png", category: "Fashion" },
+  { name: "Joy Movers", logo: "/THE DIGITAL COYOTES/joymovers.png", category: "Logistics" },
+  { name: "Vinshar Integrated Services", logo: "/THE DIGITAL COYOTES/vinshar.png", category: "Services" },
+  { name: "Trillium Real Estate", logo: "/THE DIGITAL COYOTES/trillium.png", category: "Real Estate" },
+  { name: "SH Productions", logo: "/THE DIGITAL COYOTES/saiproductions.png", category: "Media" },
+  { name: "RISA by Rinkesh & Sanchi", logo: "/THE DIGITAL COYOTES/risabyrinkeshandsanchi.png", category: "Fashion" },
+  { name: "SAR Venture Pvt Ltd", logo: "/THE DIGITAL COYOTES/sarventurepvtltd.png", category: "Finance" },
+  { name: "Athena Global Logistics", logo: "/THE DIGITAL COYOTES/athenagloballogistics.jpeg", category: "Logistics" },
+  { name: "Bakelette", logo: "/THE DIGITAL COYOTES/bakelette-logo-0LT-_flN.png", category: "Food & Beverage" },
+  { name: "Clickcab", logo: "/THE DIGITAL COYOTES/clickcab.jpeg", category: "Transport" },
+  { name: "Dermatiqua", logo: "/THE DIGITAL COYOTES/dermatiqua-logo-v2-MPqXf_62.webp", category: "Health & Beauty" },
+  { name: "Espoir", logo: "/THE DIGITAL COYOTES/espoir.jpeg", category: "Lifestyle" },
+  { name: "Jadha Hospital", logo: "/THE DIGITAL COYOTES/jadhahospital.webp", category: "Healthcare" },
+  { name: "La Aesthstique", logo: "/THE DIGITAL COYOTES/laaesthstique.webp", category: "Health & Beauty" },
+  { name: "Nayesha Childcare", logo: "/THE DIGITAL COYOTES/nayeshachildcare.png", category: "Healthcare" },
+  { name: "Scientech", logo: "/THE DIGITAL COYOTES/scientech.jpeg", category: "Technology" },
+  { name: "Shree Hospital", logo: "/THE DIGITAL COYOTES/shreehospital.png", category: "Healthcare" },
+  { name: "Shreevallabh Ayurveda", logo: "/THE DIGITAL COYOTES/shreevallabh ayurveda.webp", category: "Healthcare" },
 ];
 
 const categories = ["All", ...Array.from(new Set(clients.map(c => c.category)))];
@@ -113,24 +80,24 @@ const ClientsPage = () => {
             From startups to established enterprises, we've helped brands across industries build their digital presence and achieve measurable growth.
           </p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
             {clients.map((client, i) => (
               <div
                 key={i}
                 className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/40 hover:shadow-lg transition-all duration-300 flex flex-col items-center justify-center aspect-square"
               >
-                <div className="w-full h-20 flex items-center justify-center mb-3">
+                <div className="w-full h-28 flex items-center justify-center mb-3">
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
-                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
+                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
                     loading="lazy"
-                    width={120}
-                    height={80}
+                    width={160}
+                    height={112}
                   />
                 </div>
-                <p className="font-display font-semibold text-xs text-center leading-tight">{client.name}</p>
-                <span className="text-[10px] text-muted-foreground mt-1">{client.category}</span>
+                <p className="font-display font-semibold text-sm text-center leading-tight">{client.name}</p>
+                <span className="text-xs text-muted-foreground mt-1">{client.category}</span>
               </div>
             ))}
           </div>

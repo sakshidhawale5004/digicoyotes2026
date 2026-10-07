@@ -66,28 +66,12 @@ const benefits = [
 ];
 
 const clients = [
-  { name: "Xenovia Capital", category: "Finance" },
-  { name: "Shivaji Aappa Saraf & Sons", category: "Jewelry" },
-  { name: "Hexa TP", category: "Technology" },
-  { name: "Hexa GP", category: "Technology" },
-  { name: "SSDF", category: "Foundation" },
-  { name: "Neesham Grande", category: "Real Estate" },
   { name: "CRUST", category: "Electronics", image: "/THE DIGITAL COYOTES/crust.png" },
   { name: "Rajkamal", category: "Lifestyle", image: "/THE DIGITAL COYOTES/rajkamal.png" },
-  { name: "Todi's Mouthfreshners", category: "Food & Beverage" },
-  { name: "Territory 29 Foods", category: "Food & Beverage" },
-  { name: "MoskMan India", category: "Fashion" },
-  { name: "Farmer's Tiffin", category: "Food & Beverage" },
   { name: "iTUDE", category: "Technology", image: "/THE DIGITAL COYOTES/itude.png" },
   { name: "ORRO", category: "Luxury", image: "/THE DIGITAL COYOTES/orro.png" },
   { name: "Culinary Creations", category: "Food & Beverage", image: "/THE DIGITAL COYOTES/culinary creations.png" },
-  { name: "SMIX India", category: "Brand" },
-  { name: "Nagraj Print & Pack", category: "Printing" },
-  { name: "Sudhir Shukla Insurance", category: "Finance" },
-  { name: "Balaji Creatives", category: "Creative" },
-  { name: "Lelog", category: "Brand" },
   { name: "RISA NX", category: "Fashion", image: "/THE DIGITAL COYOTES/risenx.png" },
-  { name: "Ram Institute", category: "Education" },
   { name: "Joy Movers", category: "Logistics", image: "/THE DIGITAL COYOTES/joymovers.png" },
   { name: "Vinshar Integrated Services", category: "Services", image: "/THE DIGITAL COYOTES/vinshar.png" },
   { name: "Trillium Real Estate", category: "Real Estate", image: "/THE DIGITAL COYOTES/trillium.png" },
@@ -225,9 +209,9 @@ const Index = () => {
                   key={i}
                   className="shrink-0 w-[220px] rounded-2xl bg-background border border-border p-6 flex flex-col items-center text-center gap-4 hover:border-primary/40 hover:shadow-[0_12px_30px_-15px_hsl(24,95%,53%,0.4)] transition-all duration-300 cursor-pointer group/card"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex-shrink-0 flex items-center justify-center font-display font-bold text-primary text-2xl group-hover/card:bg-gradient-orange group-hover/card:text-primary-foreground group-hover/card:shadow-[0_8px_20px_-8px_hsl(24,95%,53%,0.6)] transition-all duration-300 overflow-hidden">
+                  <div className="w-28 h-28 rounded-2xl bg-white flex-shrink-0 flex items-center justify-center font-display font-bold text-primary text-2xl group-hover/card:bg-gradient-orange group-hover/card:text-primary-foreground group-hover/card:shadow-[0_8px_20px_-8px_hsl(24,95%,53%,0.6)] transition-all duration-300 overflow-hidden border border-gray-100 p-2">
                     {client.image ? (
-                      <img src={client.image} alt={client.name} className="w-full h-full object-contain p-2 bg-white" />
+                      <img src={client.image} alt={client.name} className="w-full h-full object-contain mix-blend-multiply" />
                     ) : (
                       client.name.split(" ").filter(w => /[A-Za-z]/.test(w[0])).slice(0, 2).map(w => w[0]).join("")
                     )}

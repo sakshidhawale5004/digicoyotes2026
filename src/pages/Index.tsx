@@ -151,7 +151,7 @@ const Index = () => {
 
 
       {/* About Section */}
-      <section className="relative py-24 overflow-hidden">
+      <section className="relative py-32 overflow-hidden bg-black">
         {/* Background Video */}
         <video 
           src="/video.mp4" 
@@ -159,34 +159,34 @@ const Index = () => {
           loop 
           muted 
           playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0 opacity-50"
         />
-        {/* Light Overlay for Readability */}
-        <div className="absolute inset-0 bg-white/90 z-10" />
+        {/* Dark Gradient Overlay for Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/30 z-10" />
 
         <div className="container relative z-20 mx-auto px-6">
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ABOUT AGENCY</p>
-          <div className="flex flex-col lg:flex-row gap-12 items-start">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-6">ABOUT AGENCY</p>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/2">
-              <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight text-[#0a0a0a]">
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-white">
                 Empowering your digital growth, <span className="text-[#ff5a1f]">one click at a time</span>
               </h2>
-              <p className="text-gray-600 mt-6 leading-relaxed text-xl">
+              <p className="text-gray-300 mt-8 leading-relaxed text-lg lg:text-xl font-light">
                 Founded in 2021 in Mumbai with 8+ years of industry expertise, we've collaborated with 10+ international brands and partnered with 5+ associate digital marketing agencies across India.
               </p>
-              <Link to="/contact" className="mt-8 inline-flex px-8 py-4 bg-transparent border-2 border-[#0a0a0a] text-[#0a0a0a] font-semibold rounded-full hover:bg-[#0a0a0a] hover:text-white transition-colors">
+              <Link to="/contact" className="mt-10 inline-flex px-8 py-4 bg-[#ff5a1f] text-white font-semibold rounded-full hover:bg-white hover:text-[#0a0a0a] transition-colors duration-300">
                 Contact Us
               </Link>
             </div>
-            <div className="lg:w-1/2 space-y-6">
+            <div className="lg:w-1/2 space-y-6 w-full">
               {[
                 { title: "Your Success is Our Mission", desc: "We measure our value by the growth of our clients. With a focus on sharp results and a dedication to quality." },
                 { title: "Creators Of Digital Excellence", desc: "At the core of our agency is a commitment to excellence and creativity in crafting digital solutions." },
                 { title: "Helping Brands Thrive Online", desc: "Our purpose is simple: to help brands succeed in the digital age with strong client relationships." },
               ].map((item, i) => (
-                <div key={i} className="p-8 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#ff5a1f]/40 hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-display font-semibold text-2xl mb-3 text-[#0a0a0a]">{item.title}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{item.desc}</p>
+                <div key={i} className="p-8 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-[#ff5a1f]/50 hover:bg-white/10 transition-all duration-300">
+                  <h3 className="font-display font-semibold text-2xl mb-3 text-white">{item.title}</h3>
+                  <p className="text-gray-400 text-base leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -227,24 +227,28 @@ const Index = () => {
       </section>
 
       {/* Services */}
-      <section className="py-24 bg-background">
+      <section className="py-32 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="flex items-center justify-between mb-12">
-            <div>
-              <p className="section-label mb-4">OUR SERVICES</p>
-              <h2 className="font-display text-4xl md:text-5xl font-bold">Our digital services to <span className="text-gradient-orange">grow your brand</span></h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div className="max-w-2xl">
+              <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">OUR SERVICES</p>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] text-[#0a0a0a]">
+                Our digital services to <span className="text-[#ff5a1f]">grow your brand</span>
+              </h2>
             </div>
-            <Link to="/services/branding-and-identity" className="hidden md:inline-flex px-6 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
-              All Services
+            <Link to="/services/branding-and-identity" className="hidden md:inline-flex px-8 py-4 bg-transparent border-2 border-[#0a0a0a] text-[#0a0a0a] font-semibold rounded-full hover:bg-[#0a0a0a] hover:text-white transition-colors duration-300 whitespace-nowrap">
+              Explore All Services
             </Link>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {services.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="p-10 rounded-2xl bg-white border border-gray-200 text-[#0a0a0a] transition-all duration-300 cursor-pointer h-full group hover:-translate-y-2 hover:shadow-xl hover:border-[#ff5a1f]/50">
-                  <s.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
-                  <h3 className="font-display font-semibold text-3xl mb-4">{s.title}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{s.desc}</p>
+                <div className="p-10 rounded-[2rem] bg-white text-[#0a0a0a] transition-all duration-300 cursor-pointer h-full group hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] border border-transparent hover:border-gray-100 flex flex-col">
+                  <div className="w-16 h-16 rounded-2xl bg-orange-50 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                    <s.icon className="w-8 h-8 text-[#ff5a1f]" />
+                  </div>
+                  <h3 className="font-display font-semibold text-2xl mb-4">{s.title}</h3>
+                  <p className="text-gray-500 text-lg leading-relaxed flex-1">{s.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -282,7 +286,7 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
-                    <h3 className="font-display font-semibold text-3xl text-center text-[#0a0a0a] group-hover:text-[#ff5a1f] transition-colors">
+                    <h3 className="font-display font-semibold text-2xl text-center text-[#0a0a0a] group-hover:text-[#ff5a1f] transition-colors px-2">
                       {item.title}
                     </h3>
                   </Link>
@@ -310,20 +314,26 @@ const Index = () => {
       </section>
 
       {/* Why Choose */}
-      <section className="py-24 bg-white">
+      <section className="py-32 bg-white">
         <div className="container mx-auto px-6">
-          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">WHY CHOOSE</p>
-          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6">Why Run With <span className="text-[#ff5a1f]">The Digital Coyotes?</span></h2>
-          <p className="text-gray-600 max-w-2xl mb-16 text-xl">Our dedicated team is committed to understanding your unique needs, ensuring innovative strategies that drive results.</p>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4 text-center md:text-left">WHY CHOOSE US</p>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold max-w-2xl text-center md:text-left">
+              Why Run With <span className="text-[#ff5a1f]">The Digital Coyotes?</span>
+            </h2>
+            <p className="text-gray-500 max-w-md text-lg md:text-xl text-center md:text-left">
+              Our dedicated team is committed to understanding your unique needs, ensuring innovative strategies that drive results.
+            </p>
+          </div>
           <div className="grid md:grid-cols-3 gap-12">
             {whyChoose.map((w, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
-                <div className="h-full">
-                  <div className="w-16 h-16 bg-gray-50 border border-gray-100 flex items-center justify-center mb-8">
-                    <w.icon className="w-8 h-8 text-[#ff5a1f]" />
+                <div className="h-full group">
+                  <div className="w-20 h-20 rounded-full bg-orange-50 flex items-center justify-center mb-8 group-hover:bg-[#ff5a1f] transition-colors duration-500">
+                    <w.icon className="w-10 h-10 text-[#ff5a1f] group-hover:text-white transition-colors duration-500" />
                   </div>
-                  <h3 className="font-display font-semibold text-3xl mb-4">{w.title}</h3>
-                  <p className="text-gray-600 text-lg leading-relaxed">{w.desc}</p>
+                  <h3 className="font-display font-semibold text-2xl mb-4 text-[#0a0a0a]">{w.title}</h3>
+                  <p className="text-gray-500 text-lg leading-relaxed">{w.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -332,16 +342,23 @@ const Index = () => {
       </section>
 
       {/* Process */}
-      <section className="py-24 bg-card">
+      <section className="py-32 bg-[#0a0a0a] text-white">
         <div className="container mx-auto px-6">
-          <p className="section-label mb-4">HOW IT WORKS</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">Our proven process for <span className="text-gradient-orange">achieving success</span></h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4 text-center">HOW IT WORKS</p>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-20 text-center">
+            Our proven process for <span className="text-[#ff5a1f]">achieving success</span>
+          </h2>
+          <div className="grid md:grid-cols-3 gap-12 relative">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute top-[4.5rem] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-gray-800 to-transparent z-0" />
+            
             {process.map((p, i) => (
-              <div key={i} className="relative">
-                <span className="font-display text-7xl font-bold text-primary">{p.step}</span>
-                <h3 className="font-display font-semibold text-2xl mt-2 mb-3">{p.title}</h3>
-                <p className="text-muted-foreground text-base leading-relaxed">{p.desc}</p>
+              <div key={i} className="relative z-10 text-center md:text-left group">
+                <div className="font-display text-7xl font-bold text-[#ff5a1f]/20 group-hover:text-[#ff5a1f] transition-colors duration-500 mb-6 bg-[#0a0a0a] inline-block pr-6">
+                  {p.step}
+                </div>
+                <h3 className="font-display font-semibold text-2xl mb-4">{p.title}</h3>
+                <p className="text-gray-400 text-lg leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>

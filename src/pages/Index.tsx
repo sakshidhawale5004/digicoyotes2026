@@ -302,10 +302,10 @@ const Index = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-5xl mx-auto">
             {stats.map((s, i) => (
-              <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="text-center md:text-left p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <ScrollReveal key={i} delay={i * 0.08} className="h-full">
+                <div className="h-full flex flex-col justify-center text-center md:text-left p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <p className="font-display text-7xl md:text-[5.5rem] font-extrabold text-[#0a0a0a] mb-4 leading-none tracking-tight">{s.value}</p>
-                  <p className="text-[#ff5a1f] text-xl md:text-2xl font-bold tracking-wide">{s.label}</p>
+                  <p className="text-[#ff5a1f] text-xl md:text-2xl font-bold tracking-wide leading-snug">{s.label}</p>
                 </div>
               </ScrollReveal>
             ))}

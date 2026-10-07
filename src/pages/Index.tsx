@@ -294,14 +294,14 @@ const Index = () => {
       </section>
 
       {/* Stats */}
-      <section className="py-32 bg-[#0a0a0a] text-white border-y border-gray-900">
+      <section className="py-24 bg-white border-y border-gray-100">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 max-w-5xl mx-auto">
             {stats.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
-                <div className="text-center md:text-left">
-                  <p className="font-display text-7xl md:text-[5.5rem] font-extrabold text-white mb-6 leading-none tracking-tight">{s.value}</p>
-                  <p className="text-[#3b82f6] text-2xl md:text-3xl font-medium">{s.label}</p>
+                <div className="text-center md:text-left p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <p className="font-display text-7xl md:text-[5.5rem] font-extrabold text-[#0a0a0a] mb-4 leading-none tracking-tight">{s.value}</p>
+                  <p className="text-[#ff5a1f] text-xl md:text-2xl font-bold tracking-wide">{s.label}</p>
                 </div>
               </ScrollReveal>
             ))}

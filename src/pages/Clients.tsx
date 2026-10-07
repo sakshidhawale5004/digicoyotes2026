@@ -90,7 +90,7 @@ const ClientsPage = () => {
                   <img
                     src={client.logo}
                     alt={`${client.name} logo`}
-                    className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 mix-blend-multiply"
+                    className="max-w-full max-h-full object-contain transition-all duration-300 mix-blend-multiply group-hover:scale-105"
                     loading="lazy"
                     width={160}
                     height={112}

@@ -66,22 +66,21 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
           </motion.div>
 
           <motion.h1
-            className="font-display font-bold text-[#0a0a0a] leading-[1.0] tracking-[-0.04em] text-balance text-6xl md:text-7xl lg:text-[5.5rem]"
+            className="font-display font-bold text-[#0a0a0a] leading-[1.15] tracking-tight text-balance text-5xl md:text-6xl lg:text-[5rem]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
           >
             {title}{" "}
-            <br className="hidden md:block" />
-            <span className="relative inline-block align-baseline mt-2 md:mt-4">
+            <span className="relative inline-block whitespace-nowrap">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={rotatingWords[currentWord]}
-                  className="inline-block text-[#ff5a1f] px-2 py-1"
-                  initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)", rotateX: 90 }}
-                  animate={{ opacity: 1, scale: 1, filter: "blur(0px)", rotateX: 0 }}
-                  exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)", rotateX: -90 }}
-                  transition={{ duration: 0.5, type: "spring", bounce: 0.4 }}
+                  className="inline-block text-transparent bg-clip-text bg-gradient-orange"
+                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  exit={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                 >
                   {rotatingWords[currentWord]}
                 </motion.span>

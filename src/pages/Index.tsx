@@ -422,13 +422,16 @@ const Index = () => {
             Real campaign <span className="text-[#ff5a1f]">performance metrics</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mb-16 text-xl">Data-driven results from our recent ad campaigns across social and search platforms.</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {adsResults.map((a, i) => (
               <ScrollReveal key={i} delay={i * 0.07}>
-                <div className="text-left h-full border-t-2 border-[#ff5a1f]/30 pt-6">
-                  <p className="font-display text-5xl md:text-6xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{a.metric}</p>
-                  <p className="text-gray-800 font-semibold text-lg mb-2">{a.label}</p>
-                  <p className="text-gray-500 text-base">{a.detail}</p>
+                <div className="relative overflow-hidden bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group h-full flex flex-col justify-center">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-orange opacity-10 rounded-bl-full -mr-8 -mt-8 transition-transform duration-500 group-hover:scale-125" />
+                  <p className="font-display text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-orange mb-4 leading-none tracking-tight">
+                    {a.metric}
+                  </p>
+                  <p className="text-gray-900 font-bold text-xl mb-2 relative z-10">{a.label}</p>
+                  <p className="text-gray-500 text-base font-medium relative z-10">{a.detail}</p>
                 </div>
               </ScrollReveal>
             ))}

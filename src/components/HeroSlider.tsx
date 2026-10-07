@@ -21,6 +21,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
   description,
   ctaText,
   ctaLink,
+  backgroundImage,
 }, ref) => {
   const [currentWord, setCurrentWord] = useState(0);
   const { scrollY } = useScroll();
@@ -39,8 +40,15 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
       {/* Soft orange glow on the right */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ff5a1f]/10 rounded-full blur-[120px] pointer-events-none" />
 
+      {/* Background Image */}
+      {backgroundImage && (
+        <div className="absolute inset-0 flex items-center justify-end lg:justify-end p-6 lg:p-20 z-0 pointer-events-none">
+          <img src={backgroundImage} alt="Hero Background" className="w-full lg:w-1/2 h-auto object-contain max-h-full" />
+        </div>
+      )}
+
       {/* 3D Scene */}
-      <FloatingShapes className="absolute inset-0 lg:left-1/2 lg:w-1/2 opacity-80" />
+      <FloatingShapes className="absolute inset-0 lg:left-1/2 lg:w-1/2 opacity-80 z-0" />
 
       {/* Content */}
       <motion.div
@@ -72,7 +80,7 @@ const HeroSlider = forwardRef<HTMLElement, HeroSliderProps>(({
               <AnimatePresence mode="wait">
                 <motion.span
                   key={rotatingWords[currentWord]}
-                  className="inline-block neon-block-text px-2 py-1"
+                  className="inline-block text-[#ff5a1f] px-2 py-1"
                   initial={{ opacity: 0, scale: 0.8, filter: "blur(10px)", rotateX: 90 }}
                   animate={{ opacity: 1, scale: 1, filter: "blur(0px)", rotateX: 0 }}
                   exit={{ opacity: 0, scale: 1.1, filter: "blur(10px)", rotateX: -90 }}

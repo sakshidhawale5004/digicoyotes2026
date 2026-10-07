@@ -72,28 +72,39 @@ const clients = [
   { name: "Hexa GP", category: "Technology" },
   { name: "SSDF", category: "Foundation" },
   { name: "Neesham Grande", category: "Real Estate" },
-  { name: "CRUST", category: "Electronics" },
-  { name: "Rajkamal", category: "Lifestyle" },
+  { name: "CRUST", category: "Electronics", image: "/THE DIGITAL COYOTES/crust.png" },
+  { name: "Rajkamal", category: "Lifestyle", image: "/THE DIGITAL COYOTES/rajkamal.png" },
   { name: "Todi's Mouthfreshners", category: "Food & Beverage" },
   { name: "Territory 29 Foods", category: "Food & Beverage" },
   { name: "MoskMan India", category: "Fashion" },
   { name: "Farmer's Tiffin", category: "Food & Beverage" },
-  { name: "iTUDE", category: "Technology" },
-  { name: "ORRO", category: "Luxury" },
-  { name: "Culinary Creations", category: "Food & Beverage" },
+  { name: "iTUDE", category: "Technology", image: "/THE DIGITAL COYOTES/itude.png" },
+  { name: "ORRO", category: "Luxury", image: "/THE DIGITAL COYOTES/orro.png" },
+  { name: "Culinary Creations", category: "Food & Beverage", image: "/THE DIGITAL COYOTES/culinary creations.png" },
   { name: "SMIX India", category: "Brand" },
   { name: "Nagraj Print & Pack", category: "Printing" },
   { name: "Sudhir Shukla Insurance", category: "Finance" },
   { name: "Balaji Creatives", category: "Creative" },
   { name: "Lelog", category: "Brand" },
-  { name: "RISA NX", category: "Fashion" },
+  { name: "RISA NX", category: "Fashion", image: "/THE DIGITAL COYOTES/risenx.png" },
   { name: "Ram Institute", category: "Education" },
-  { name: "Joy Movers", category: "Logistics" },
-  { name: "Vinshar Integrated Services", category: "Services" },
-  { name: "Trillium Real Estate", category: "Real Estate" },
-  { name: "SH Productions", category: "Media" },
-  { name: "RISA by Rinkesh & Sanchi", category: "Fashion" },
-  { name: "SAR Venture Pvt Ltd", category: "Finance" },
+  { name: "Joy Movers", category: "Logistics", image: "/THE DIGITAL COYOTES/joymovers.png" },
+  { name: "Vinshar Integrated Services", category: "Services", image: "/THE DIGITAL COYOTES/vinshar.png" },
+  { name: "Trillium Real Estate", category: "Real Estate", image: "/THE DIGITAL COYOTES/trillium.png" },
+  { name: "SH Productions", category: "Media", image: "/THE DIGITAL COYOTES/saiproductions.png" },
+  { name: "RISA by Rinkesh & Sanchi", category: "Fashion", image: "/THE DIGITAL COYOTES/risabyrinkeshandsanchi.png" },
+  { name: "SAR Venture Pvt Ltd", category: "Finance", image: "/THE DIGITAL COYOTES/sarventurepvtltd.png" },
+  { name: "Athena Global Logistics", category: "Logistics", image: "/THE DIGITAL COYOTES/athenagloballogistics.jpeg" },
+  { name: "Bakelette", category: "Food & Beverage", image: "/THE DIGITAL COYOTES/bakelette-logo-0LT-_flN.png" },
+  { name: "Clickcab", category: "Transport", image: "/THE DIGITAL COYOTES/clickcab.jpeg" },
+  { name: "Dermatiqua", category: "Health & Beauty", image: "/THE DIGITAL COYOTES/dermatiqua-logo-v2-MPqXf_62.webp" },
+  { name: "Espoir", category: "Lifestyle", image: "/THE DIGITAL COYOTES/espoir.jpeg" },
+  { name: "Jadha Hospital", category: "Healthcare", image: "/THE DIGITAL COYOTES/jadhahospital.webp" },
+  { name: "La Aesthstique", category: "Health & Beauty", image: "/THE DIGITAL COYOTES/laaesthstique.webp" },
+  { name: "Nayesha Childcare", category: "Healthcare", image: "/THE DIGITAL COYOTES/nayeshachildcare.png" },
+  { name: "Scientech", category: "Technology", image: "/THE DIGITAL COYOTES/scientech.jpeg" },
+  { name: "Shree Hospital", category: "Healthcare", image: "/THE DIGITAL COYOTES/shreehospital.png" },
+  { name: "Shreevallabh Ayurveda", category: "Healthcare", image: "/THE DIGITAL COYOTES/shreevallabh ayurveda.webp" },
 ];
 
 const testimonials = [
@@ -141,14 +152,14 @@ const Index = () => {
         description="At The Digital Coyotes, we don't just follow the trail—we blaze it. We craft high-impact digital experiences that help your brand lead the pack."
         ctaText="Get In Touch"
         ctaLink="/contact"
-        backgroundImage={heroHome}
+        backgroundImage="/herosectionimageforhomepage.png"
       />
 
       {/* Marquee */}
       <div className="bg-primary py-4 overflow-hidden">
         <div className="animate-marquee flex whitespace-nowrap">
           {[...marqueeItems, ...marqueeItems, ...marqueeItems].map((item, i) => (
-            <span key={i} className="mx-6 text-sm font-semibold text-primary-foreground flex items-center gap-2">
+            <span key={i} className="mx-6 text-base font-semibold text-primary-foreground flex items-center gap-2">
               <span className="text-primary-foreground/60">✦</span> {item}
             </span>
           ))}
@@ -171,13 +182,13 @@ const Index = () => {
         <div className="absolute inset-0 bg-white/90 z-10" />
 
         <div className="container relative z-20 mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ABOUT AGENCY</p>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ABOUT AGENCY</p>
           <div className="flex flex-col lg:flex-row gap-12 items-start">
             <div className="lg:w-1/2">
-              <h2 className="font-display text-3xl md:text-5xl font-bold leading-tight text-[#0a0a0a]">
+              <h2 className="font-display text-4xl md:text-6xl font-bold leading-tight text-[#0a0a0a]">
                 Empowering your digital growth, <span className="text-[#ff5a1f]">one click at a time</span>
               </h2>
-              <p className="text-gray-600 mt-6 leading-relaxed text-lg">
+              <p className="text-gray-600 mt-6 leading-relaxed text-xl">
                 Founded in 2021 in Mumbai with 8+ years of industry expertise, we've collaborated with 10+ international brands and partnered with 5+ associate digital marketing agencies across India.
               </p>
               <Link to="/contact" className="mt-8 inline-flex px-8 py-4 bg-transparent border-2 border-[#0a0a0a] text-[#0a0a0a] font-semibold rounded-full hover:bg-[#0a0a0a] hover:text-white transition-colors">
@@ -191,8 +202,8 @@ const Index = () => {
                 { title: "Helping Brands Thrive Online", desc: "Our purpose is simple: to help brands succeed in the digital age with strong client relationships." },
               ].map((item, i) => (
                 <div key={i} className="p-8 rounded-xl bg-white/60 backdrop-blur-sm border border-gray-200 hover:border-[#ff5a1f]/40 hover:shadow-lg transition-all duration-300">
-                  <h3 className="font-display font-semibold text-xl mb-3 text-[#0a0a0a]">{item.title}</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">{item.desc}</p>
+                  <h3 className="font-display font-semibold text-2xl mb-3 text-[#0a0a0a]">{item.title}</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -204,7 +215,7 @@ const Index = () => {
       <section className="py-20 bg-card border-y border-border">
         <div className="container mx-auto px-6">
           <p className="section-label text-center mb-3">OUR CLIENTS</p>
-          <h3 className="font-display text-2xl md:text-3xl font-bold text-center mb-12">
+          <h3 className="font-display text-3xl md:text-4xl font-bold text-center mb-12">
             Your growth is our <span className="text-gradient-orange">greatest achievement</span>
           </h3>
           <div className="relative overflow-hidden group [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
@@ -214,12 +225,16 @@ const Index = () => {
                   key={i}
                   className="shrink-0 w-[220px] rounded-2xl bg-background border border-border p-6 flex flex-col items-center text-center gap-4 hover:border-primary/40 hover:shadow-[0_12px_30px_-15px_hsl(24,95%,53%,0.4)] transition-all duration-300 cursor-pointer group/card"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex-shrink-0 flex items-center justify-center font-display font-bold text-primary text-xl group-hover/card:bg-gradient-orange group-hover/card:text-primary-foreground group-hover/card:shadow-[0_8px_20px_-8px_hsl(24,95%,53%,0.6)] transition-all duration-300">
-                    {client.name.split(" ").filter(w => /[A-Za-z]/.test(w[0])).slice(0, 2).map(w => w[0]).join("")}
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex-shrink-0 flex items-center justify-center font-display font-bold text-primary text-2xl group-hover/card:bg-gradient-orange group-hover/card:text-primary-foreground group-hover/card:shadow-[0_8px_20px_-8px_hsl(24,95%,53%,0.6)] transition-all duration-300 overflow-hidden">
+                    {client.image ? (
+                      <img src={client.image} alt={client.name} className="w-full h-full object-contain p-2 bg-white" />
+                    ) : (
+                      client.name.split(" ").filter(w => /[A-Za-z]/.test(w[0])).slice(0, 2).map(w => w[0]).join("")
+                    )}
                   </div>
                   <div className="flex flex-col w-full">
-                    <p className="font-display font-semibold text-base leading-tight line-clamp-2 text-foreground group-hover/card:text-primary transition-colors">{client.name}</p>
-                    <p className="text-muted-foreground text-sm font-medium mt-1.5">{client.category}</p>
+                    <p className="font-display font-semibold text-lg leading-tight line-clamp-2 text-foreground group-hover/card:text-primary transition-colors">{client.name}</p>
+                    <p className="text-muted-foreground text-base font-medium mt-1.5">{client.category}</p>
                   </div>
                 </div>
               ))}
@@ -234,7 +249,7 @@ const Index = () => {
           <div className="flex items-center justify-between mb-12">
             <div>
               <p className="section-label mb-4">OUR SERVICES</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold">Our digital services to <span className="text-gradient-orange">grow your brand</span></h2>
+              <h2 className="font-display text-4xl md:text-5xl font-bold">Our digital services to <span className="text-gradient-orange">grow your brand</span></h2>
             </div>
             <Link to="/services/branding-and-identity" className="hidden md:inline-flex px-6 py-3 border-2 border-primary text-primary font-semibold rounded-full hover:bg-primary hover:text-primary-foreground transition-colors">
               All Services
@@ -245,8 +260,8 @@ const Index = () => {
               <ScrollReveal key={i} delay={i * 0.1}>
                 <div className="p-10 rounded-2xl bg-white border border-gray-200 text-[#0a0a0a] transition-all duration-300 cursor-pointer h-full group hover:-translate-y-2 hover:shadow-xl hover:border-[#ff5a1f]/50">
                   <s.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
-                  <h3 className="font-display font-semibold text-2xl mb-4">{s.title}</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">{s.desc}</p>
+                  <h3 className="font-display font-semibold text-3xl mb-4">{s.title}</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">{s.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -256,8 +271,8 @@ const Index = () => {
       {/* Portfolio Section */}
       <section className="py-24 bg-white text-[#0a0a0a]">
         <div className="container mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4 text-center">OUR PORTFOLIO</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16 text-center">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4 text-center">OUR PORTFOLIO</p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-16 text-center">
             Our recent <span className="text-[#ff5a1f]">projects</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -274,7 +289,7 @@ const Index = () => {
                       />
                       {/* Ripple Wipe Overlay on Hover */}
                       <div className="absolute inset-0 bg-[#ff5a1f]/20 mix-blend-overlay ripple-wipe-hover pointer-events-none" />
-                      <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md text-[#0a0a0a] text-xs font-semibold px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+                      <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-md text-[#0a0a0a] text-sm font-semibold px-4 py-2 rounded-full border border-gray-200 shadow-sm">
                         {item.category}
                       </div>
                       {/* Hover Circle Overlay */}
@@ -284,7 +299,7 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
-                    <h3 className="font-display font-semibold text-2xl text-center text-[#0a0a0a] group-hover:text-[#ff5a1f] transition-colors">
+                    <h3 className="font-display font-semibold text-3xl text-center text-[#0a0a0a] group-hover:text-[#ff5a1f] transition-colors">
                       {item.title}
                     </h3>
                   </Link>
@@ -298,16 +313,16 @@ const Index = () => {
       {/* Stats */}
       <section className="py-24 bg-gray-50 text-[#0a0a0a]">
         <div className="container mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">EXPERTISE</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">EXPERTISE</p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-16">
             Expertise that drives <span className="text-[#ff5a1f]">digital success</span>
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((s, i) => (
               <ScrollReveal key={i} delay={i * 0.08}>
                 <div className="p-6 border-l-2 border-[#ff5a1f]/30 pl-8">
-                  <p className="font-display text-5xl md:text-6xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{s.value}</p>
-                  <p className="text-gray-600 text-base">{s.label}</p>
+                  <p className="font-display text-6xl md:text-7xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{s.value}</p>
+                  <p className="text-gray-600 text-lg">{s.label}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -318,9 +333,9 @@ const Index = () => {
       {/* Why Choose */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">WHY CHOOSE</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">Why Run With <span className="text-[#ff5a1f]">The Digital Coyotes?</span></h2>
-          <p className="text-gray-600 max-w-2xl mb-16 text-lg">Our dedicated team is committed to understanding your unique needs, ensuring innovative strategies that drive results.</p>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">WHY CHOOSE</p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6">Why Run With <span className="text-[#ff5a1f]">The Digital Coyotes?</span></h2>
+          <p className="text-gray-600 max-w-2xl mb-16 text-xl">Our dedicated team is committed to understanding your unique needs, ensuring innovative strategies that drive results.</p>
           <div className="grid md:grid-cols-3 gap-12">
             {whyChoose.map((w, i) => (
               <ScrollReveal key={i} delay={i * 0.1}>
@@ -328,8 +343,8 @@ const Index = () => {
                   <div className="w-16 h-16 bg-gray-50 border border-gray-100 flex items-center justify-center mb-8">
                     <w.icon className="w-8 h-8 text-[#ff5a1f]" />
                   </div>
-                  <h3 className="font-display font-semibold text-2xl mb-4">{w.title}</h3>
-                  <p className="text-gray-600 text-base leading-relaxed">{w.desc}</p>
+                  <h3 className="font-display font-semibold text-3xl mb-4">{w.title}</h3>
+                  <p className="text-gray-600 text-lg leading-relaxed">{w.desc}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -341,13 +356,13 @@ const Index = () => {
       <section className="py-24 bg-card">
         <div className="container mx-auto px-6">
           <p className="section-label mb-4">HOW IT WORKS</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-16">Our proven process for <span className="text-gradient-orange">achieving success</span></h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">Our proven process for <span className="text-gradient-orange">achieving success</span></h2>
           <div className="grid md:grid-cols-3 gap-8">
             {process.map((p, i) => (
               <div key={i} className="relative">
-                <span className="font-display text-6xl font-bold text-primary">{p.step}</span>
-                <h3 className="font-display font-semibold text-xl mt-2 mb-3">{p.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{p.desc}</p>
+                <span className="font-display text-7xl font-bold text-primary">{p.step}</span>
+                <h3 className="font-display font-semibold text-2xl mt-2 mb-3">{p.title}</h3>
+                <p className="text-muted-foreground text-base leading-relaxed">{p.desc}</p>
               </div>
             ))}
           </div>
@@ -357,14 +372,14 @@ const Index = () => {
       {/* Features */}
       <section className="py-24 bg-gray-50 text-[#0a0a0a]">
         <div className="container mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">FEATURES</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">Innovative features for your <span className="text-[#ff5a1f]">digital success</span></h2>
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">FEATURES</p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-16">Innovative features for your <span className="text-[#ff5a1f]">digital success</span></h2>
           <div className="grid md:grid-cols-2 gap-8">
             {features.map((f, i) => (
               <div key={i} className="p-10 border border-gray-200 bg-white hover:border-[#ff5a1f]/50 hover:shadow-lg transition-all duration-300">
                 <f.icon className="w-12 h-12 text-[#ff5a1f] mb-8" />
-                <h3 className="font-display font-semibold text-3xl mb-4">{f.title}</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">{f.desc}</p>
+                <h3 className="font-display font-semibold text-4xl mb-4">{f.title}</h3>
+                <p className="text-gray-600 text-xl leading-relaxed">{f.desc}</p>
               </div>
             ))}
           </div>
@@ -375,13 +390,13 @@ const Index = () => {
       <section className="py-24 section-light">
         <div className="container mx-auto px-6">
           <p className="section-label mb-4">KEY BENEFITS</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-16">Discover the benefits of <span className="text-gradient-orange">choosing us today</span></h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-16">Discover the benefits of <span className="text-gradient-orange">choosing us today</span></h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {benefits.map((b, i) => (
               <div key={i}>
-                <span className="font-display text-5xl font-bold text-primary">{b.step}</span>
-                <h3 className="font-display font-semibold text-lg mt-2 mb-3">{b.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">{b.desc}</p>
+                <span className="font-display text-6xl font-bold text-primary">{b.step}</span>
+                <h3 className="font-display font-semibold text-xl mt-2 mb-3">{b.title}</h3>
+                <p className="text-muted-foreground text-base leading-relaxed">{b.desc}</p>
               </div>
             ))}
           </div>
@@ -392,7 +407,7 @@ const Index = () => {
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
           <p className="section-label mb-4">TESTIMONIALS</p>
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-12">Read what they have to say about <span className="text-gradient-orange">working with us</span></h2>
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-12">Read what they have to say about <span className="text-gradient-orange">working with us</span></h2>
           <div className="grid md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <div key={i} className="p-8 rounded-2xl border border-border hover:border-primary/20 transition-colors">
@@ -401,12 +416,12 @@ const Index = () => {
                 </div>
                 <p className="text-muted-foreground leading-relaxed mb-6">"{t.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-orange flex items-center justify-center font-display font-bold text-primary-foreground text-sm">
+                  <div className="w-10 h-10 rounded-full bg-gradient-orange flex items-center justify-center font-display font-bold text-primary-foreground text-base">
                     {t.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div>
-                    <p className="font-display font-semibold text-sm">{t.name}</p>
-                    <p className="text-muted-foreground text-xs">{t.role}</p>
+                    <p className="font-display font-semibold text-base">{t.name}</p>
+                    <p className="text-muted-foreground text-sm">{t.role}</p>
                   </div>
                 </div>
               </div>
@@ -418,18 +433,18 @@ const Index = () => {
       {/* Ads Results */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ADS RESULTS</p>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-6">
+          <p className="text-sm font-semibold tracking-[0.2em] uppercase text-[#ff5a1f] mb-4">ADS RESULTS</p>
+          <h2 className="font-display text-5xl md:text-6xl font-bold mb-6">
             Real campaign <span className="text-[#ff5a1f]">performance metrics</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mb-16 text-lg">Data-driven results from our recent ad campaigns across social and search platforms.</p>
+          <p className="text-gray-600 max-w-2xl mb-16 text-xl">Data-driven results from our recent ad campaigns across social and search platforms.</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
             {adsResults.map((a, i) => (
               <ScrollReveal key={i} delay={i * 0.07}>
                 <div className="text-left h-full border-t-2 border-[#ff5a1f]/30 pt-6">
-                  <p className="font-display text-4xl md:text-5xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{a.metric}</p>
-                  <p className="text-gray-800 font-semibold text-base mb-2">{a.label}</p>
-                  <p className="text-gray-500 text-sm">{a.detail}</p>
+                  <p className="font-display text-5xl md:text-6xl font-extrabold text-[#0a0a0a] mb-4 leading-none">{a.metric}</p>
+                  <p className="text-gray-800 font-semibold text-lg mb-2">{a.label}</p>
+                  <p className="text-gray-500 text-base">{a.detail}</p>
                 </div>
               </ScrollReveal>
             ))}
@@ -443,8 +458,8 @@ const Index = () => {
           {footerFeatures.map((f, i) => (
             <div key={i} className="text-center p-6">
               <f.icon className="w-8 h-8 text-primary mx-auto mb-3" />
-              <h4 className="font-display font-semibold text-sm mb-1">{f.title}</h4>
-              <p className="text-muted-foreground text-xs">{f.desc}</p>
+              <h4 className="font-display font-semibold text-base mb-1">{f.title}</h4>
+              <p className="text-muted-foreground text-sm">{f.desc}</p>
             </div>
           ))}
         </div>
